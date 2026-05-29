@@ -1,0 +1,360 @@
+$date
+	Fri May 29 10:15:59 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_systolic2x2 $end
+$var wire 9 ! c11 [8:0] $end
+$var wire 9 " c10 [8:0] $end
+$var wire 9 # c01 [8:0] $end
+$var wire 9 $ c00 [8:0] $end
+$var reg 4 % a00 [3:0] $end
+$var reg 4 & a01 [3:0] $end
+$var reg 4 ' a10 [3:0] $end
+$var reg 4 ( a11 [3:0] $end
+$var reg 4 ) b00 [3:0] $end
+$var reg 4 * b01 [3:0] $end
+$var reg 4 + b10 [3:0] $end
+$var reg 4 , b11 [3:0] $end
+$var reg 1 - clk $end
+$var reg 1 . rst_n $end
+$scope module dut $end
+$var wire 4 / a00 [3:0] $end
+$var wire 4 0 a01 [3:0] $end
+$var wire 4 1 a10 [3:0] $end
+$var wire 4 2 a11 [3:0] $end
+$var wire 4 3 b00 [3:0] $end
+$var wire 4 4 b01 [3:0] $end
+$var wire 4 5 b10 [3:0] $end
+$var wire 4 6 b11 [3:0] $end
+$var wire 1 - clk $end
+$var wire 1 . rst_n $end
+$var wire 4 7 row11 [3:0] $end
+$var wire 4 8 row10 [3:0] $end
+$var wire 4 9 row01 [3:0] $end
+$var wire 4 : row00 [3:0] $end
+$var wire 4 ; col11 [3:0] $end
+$var wire 4 < col10 [3:0] $end
+$var wire 4 = col01 [3:0] $end
+$var wire 4 > col00 [3:0] $end
+$var wire 9 ? c11 [8:0] $end
+$var wire 9 @ c10 [8:0] $end
+$var wire 9 A c01 [8:0] $end
+$var wire 9 B c00 [8:0] $end
+$var reg 3 C counter [2:0] $end
+$var reg 4 D m0 [3:0] $end
+$var reg 4 E m1 [3:0] $end
+$var reg 4 F n0 [3:0] $end
+$var reg 4 G n1 [3:0] $end
+$scope module pe00 $end
+$var wire 4 H a [3:0] $end
+$var wire 4 I b [3:0] $end
+$var wire 1 - clk $end
+$var wire 1 . rst_n $end
+$var reg 4 J a_p [3:0] $end
+$var reg 4 K b_p [3:0] $end
+$var reg 9 L c [8:0] $end
+$upscope $end
+$scope module pe01 $end
+$var wire 4 M a [3:0] $end
+$var wire 4 N b [3:0] $end
+$var wire 1 - clk $end
+$var wire 1 . rst_n $end
+$var reg 4 O a_p [3:0] $end
+$var reg 4 P b_p [3:0] $end
+$var reg 9 Q c [8:0] $end
+$upscope $end
+$scope module pe10 $end
+$var wire 4 R a [3:0] $end
+$var wire 4 S b [3:0] $end
+$var wire 1 - clk $end
+$var wire 1 . rst_n $end
+$var reg 4 T a_p [3:0] $end
+$var reg 4 U b_p [3:0] $end
+$var reg 9 V c [8:0] $end
+$upscope $end
+$scope module pe11 $end
+$var wire 4 W a [3:0] $end
+$var wire 4 X b [3:0] $end
+$var wire 1 - clk $end
+$var wire 1 . rst_n $end
+$var reg 4 Y a_p [3:0] $end
+$var reg 4 Z b_p [3:0] $end
+$var reg 9 [ c [8:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx [
+bx Z
+bx Y
+bx X
+bx W
+bx V
+bx U
+bx T
+bx S
+b0 R
+bx Q
+bx P
+bx O
+b0 N
+bx M
+bx L
+bx K
+bx J
+b0 I
+b0 H
+b0 G
+b0 F
+b0 E
+b0 D
+bx C
+bx B
+bx A
+bx @
+bx ?
+bx >
+bx =
+bx <
+bx ;
+bx :
+bx 9
+bx 8
+bx 7
+b0 6
+b0 5
+b0 4
+b0 3
+b0 2
+b0 1
+b0 0
+b0 /
+0.
+0-
+b0 ,
+b0 +
+b0 *
+b0 )
+b0 (
+b0 '
+b0 &
+b0 %
+bx $
+bx #
+bx "
+bx !
+$end
+#5000
+b0 $
+b0 B
+b0 L
+b0 >
+b0 K
+b0 S
+b0 :
+b0 J
+b0 M
+b0 #
+b0 A
+b0 Q
+b0 =
+b0 P
+b0 X
+b0 9
+b0 O
+b0 "
+b0 @
+b0 V
+b0 <
+b0 U
+b0 8
+b0 T
+b0 W
+b0 !
+b0 ?
+b0 [
+b0 ;
+b0 Z
+b0 7
+b0 Y
+b0 C
+1-
+#10000
+0-
+#15000
+b1 C
+1-
+1.
+#20000
+b10 D
+b10 H
+b1 F
+b1 I
+b10 ,
+b10 6
+b1 +
+b1 5
+b11 *
+b11 4
+b1 )
+b1 3
+b11 (
+b11 2
+b10 '
+b10 1
+b10 &
+b10 0
+b1 %
+b1 /
+0-
+#25000
+b11 E
+b11 R
+b10 G
+b10 N
+b1 D
+b1 H
+b10 $
+b10 B
+b10 L
+b1 >
+b1 K
+b1 S
+b10 :
+b10 J
+b10 M
+b10 C
+1-
+#30000
+0-
+#35000
+b10 E
+b10 R
+b11 G
+b11 N
+b0 D
+b0 H
+b0 F
+b0 I
+b11 C
+b11 "
+b11 @
+b11 V
+b1 <
+b1 U
+b11 8
+b11 T
+b11 W
+b100 #
+b100 A
+b100 Q
+b10 =
+b10 P
+b10 X
+b10 9
+b10 O
+b11 $
+b11 B
+b11 L
+b1 :
+b1 J
+b1 M
+1-
+#40000
+0-
+#45000
+b0 E
+b0 R
+b0 G
+b0 N
+b0 >
+b0 K
+b0 S
+b0 :
+b0 J
+b0 M
+b111 #
+b111 A
+b111 Q
+b11 =
+b11 P
+b11 X
+b1 9
+b1 O
+b101 "
+b101 @
+b101 V
+b10 8
+b10 T
+b10 W
+b110 !
+b110 ?
+b110 [
+b10 ;
+b10 Z
+b11 7
+b11 Y
+b100 C
+1-
+#50000
+0-
+#55000
+b101 C
+b1100 !
+b1100 ?
+b1100 [
+b11 ;
+b11 Z
+b10 7
+b10 Y
+b0 <
+b0 U
+b0 8
+b0 T
+b0 W
+b0 =
+b0 P
+b0 X
+b0 9
+b0 O
+1-
+#60000
+0-
+#65000
+b0 ;
+b0 Z
+b0 7
+b0 Y
+b110 C
+1-
+#70000
+0-
+#75000
+b111 C
+1-
+#80000
+0-
+#85000
+b0 C
+1-
+#90000
+0-
+#95000
+b10 D
+b10 H
+b1 F
+b1 I
+b1 C
+1-
+#100000
+0-
