@@ -20,10 +20,6 @@
                                           : ... Suggest assign a label with 'begin : gen_<label_name>'
    92 |         assign c4in[l+1] = c4out[l];
       |                          ^
-%Warning-WIDTHTRUNC: rtl/array_mul.v:37:19: Operator ASSIGNDLY expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'p_wire' generates 8 bits.
-                                          : ... note: In instance 'array_mul_top'
-   37 |             p_out <= p_wire;
-      |                   ^~
 %Warning-UNOPTFLAT: rtl/array_mul.v:54:28: Signal unoptimizable: Circular combinational logic: 'array_mul_top.core_inst.c4out'
    54 |   wire [3:0] c1,c2,c3,c4in,c4out;
       |                            ^~~~~
@@ -32,6 +28,6 @@
                     rtl/array_mul.v:54:23:      Example path: array_mul_top.core_inst.c4in
                     rtl/array_mul.v:106:10:      Example path: ASSIGNW
                     rtl/array_mul.v:54:28:      Example path: array_mul_top.core_inst.c4out
-%Error: Exiting due to 4 warning(s)
+%Error: Exiting due to 3 warning(s)
 ❌ LỖI: Có lỗi rồi!
 Hãy đọc kỹ log cảnh báo (Error/Warning) ở trên, sửa lỗi và push lại.
