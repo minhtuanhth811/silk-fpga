@@ -1,4 +1,5 @@
 module array_mul_top 
+    
     (
     input  wire                 clk,     
     input  wire                 rst_n, 
