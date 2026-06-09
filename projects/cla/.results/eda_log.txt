@@ -4,7 +4,7 @@
 === 0/4: Đang kiểm tra lỗi cú pháp và logic (Linting) ===
 ✅ Code RTL vượt qua Verilator linting.
 === 1/4: Đang tạo Module Documentation ===
-=== 2/4: Đang tổng hợp Netlist và FSM bằng Yosys ===
+=== 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
 === 3/4: Đang vẽ Schematic và FSM ===
 === 4/4: Đang mô phỏng và tạo sóng ===
 --- Bat dau Simulation cho khoi CLA 4-bit ---
