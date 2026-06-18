@@ -5,11 +5,11 @@
 // ========================================================
 
 module project (
-    input  wire [7:0] ui_in,    // 8 Input
-    output wire [7:0] uo_out,   // 8 Output 
-    input  wire [7:0] uio_in,   // 8 Inout path
-    output wire [7:0] uio_out,  // 8 Inout path
-    output wire [7:0] uio_oe,   // enable tri buffer for each path (1: output path, 0: input path)
+    input  wire [7:0] ui_in,    // 8 Input switch, ui_in[4] con lam uartrx
+    output wire [7:0] uo_out,   // 8 Output cho HEX_23 va ledr
+    input  wire [7:0] uio_in,   // 8 Inout path cho key
+    output wire [7:0] uio_out,  // 8 Inout path cho HEX_01
+    output wire [7:0] uio_oe,   // enable tri buffer for each path (1: output path, 0: input path), uio_oe = 8'b1111_1100 thì gắn uio_out[7:2], uio_in[1:0]
     input  wire       ena,      
     input  wire       clk,      
     input  wire       rst_n     
@@ -93,7 +93,7 @@ module project (
     // ========================================================
     // CHE DO MAC DINH
     // ========================================================
-`else 
+`elseif MODE_COUNTER
     // uio_out[2] --> uio_out[7] la output, uio_in[0] va uio_in[1] lay gia tri key0 va key1
     assign uio_oe = 8'b1111_1100;
 
@@ -105,6 +105,15 @@ module project (
         .KEY(uio_in[1:0]),     // 2 key
         .LEDR(uo_out),         // xuat ra 8 ledr
         .HEX_01(uio_out)       // xuat ra 2 HEX[0] va HEX[1]
+    );
+`else 
+    assign uio_oe = 8'b1111_1100;
+    top_module u_top (
+        .clk(clk),
+        .start(ui_in[1]),
+        .refer(ui_in[0]),            // 8 switch
+        .done(uio_in[1:0]),     // 2 key
+        .out(uo_out)
     );
 `endif
 
