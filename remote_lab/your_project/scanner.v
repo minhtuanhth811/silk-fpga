@@ -1,13 +1,13 @@
 `default_nettype none
-`ifndef SCANNER
-`define SCANNER
+`ifndef SCANNER_H
+`define SCANNER_H
   module scanner(
     input wire       clk,
     output reg      hsync,
     output reg      vsync,
     output reg      display_on,
-    output reg      abs_x,
-    output reg      abs_y,
+    output reg [9:0] abs_x,
+    output reg [9:0] abs_y,
     input wire       rst_n,
   );
     parameter H_DISPLAY = 640; // lượng pixel nhìn thấy được
