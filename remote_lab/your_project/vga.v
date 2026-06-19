@@ -22,7 +22,7 @@ module top_module(
   );
   scanner scanner_inst(
     .clk(clk),
-    .rst_n(~rst_n), //loi o day nữa, do rst_n khi không ân luôn là 1
+    .reset(~rst_n), //loi o day nữa, do rst_n khi không ân luôn là 1
     .hsync(hsync),
     .vsync(vsync),
     .display_on(video_active),
