@@ -36,7 +36,7 @@ module top_module(
   palette palette_inst(
     .color_index(color),
     .rrggbb({r,g,b})
-  )
+  );
   always @(posedge clk) begin
     //có kẽ sẽ có lỗi logic lấy mốc 0 lệch
     // 0 trong code là tính từ trước back porch porch -> video -> porch -> retrace
