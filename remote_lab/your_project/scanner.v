@@ -8,7 +8,7 @@
     output reg      display_on,
     output reg [9:0] abs_x,
     output reg [9:0] abs_y,
-    input wire       rst_n,
+    input wire       reset,
   );
     parameter H_DISPLAY = 640; // lượng pixel nhìn thấy được
     parameter H_LEFT_BOR = 48; // số pixel border bên trái
@@ -28,8 +28,8 @@
     parameter V_RETRACE_END = V_DISPLAY + V_BOT_BOR + V_RETRACE -1;
     parameter V_MAX = V_DISPLAY + V_BOT_BOR + V_TOP_BOR + V_RETRACE - 1;
   
-    wire hmax = (abs_x == H_MAX) || rst_n;
-    wire vmax = (abs_y == V_MAX) || rst_n;
+    wire hmax = (abs_x == H_MAX) || reset;
+    wire vmax = (abs_y == V_MAX) || reset;
   
     always @(posedge clk) begin
       hsync <= ~(abs_x >= H_RETRACE_START && abs_x <= H_RETRACE_END);
