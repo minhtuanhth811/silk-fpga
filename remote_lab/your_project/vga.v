@@ -44,6 +44,4 @@ module top_module(
     end
     else x <= x + 1;
   end
-  
-
 endmodule
