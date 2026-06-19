@@ -100,26 +100,25 @@ module top_module (
       prev_y      <= 0;
     end else begin
       prev_y <= pix_y;
-        if (pix_y == 0 && prev_y != pix_y) begin // cái này check đầu mỗi frame, thay pix_x == 0 && pix_y == 0 dễ hiểu hơn
-          logo_left <= logo_left + (dir_x ? 1 : -1);
-          logo_top  <= logo_top + (dir_y ? 1 : -1);
-          
-          if (logo_left - 1 == 0 && !dir_x) begin
-            dir_x <= 1;
-            color_index <= color_index + 1;
-          end
-          if (logo_left + 1 == DISPLAY_WIDTH - LOGO_SIZE && dir_x) begin
-            dir_x <= 0;
-            color_index <= color_index + 1;
-          end
-          if (logo_top - 1 == 0 && !dir_y) begin
-            dir_y <= 1;
-            color_index <= color_index + 1;
-          end
-          if (logo_top + 1 == DISPLAY_HEIGHT - LOGO_SIZE && dir_y) begin
-            dir_y <= 0;
-            color_index <= color_index + 1;
-          end
+      if (pix_y == 0 && prev_y != pix_y) begin // cái này check đầu mỗi frame, thay pix_x == 0 && pix_y == 0 dễ hiểu hơn
+        logo_left <= logo_left + (dir_x ? 1 : -1);
+        logo_top  <= logo_top + (dir_y ? 1 : -1);
+        
+        if (logo_left - 1 == 0 && !dir_x) begin
+          dir_x <= 1;
+          color_index <= color_index + 1;
+        end
+        if (logo_left + 1 == DISPLAY_WIDTH - LOGO_SIZE && dir_x) begin
+          dir_x <= 0;
+          color_index <= color_index + 1;
+        end
+        if (logo_top - 1 == 0 && !dir_y) begin
+          dir_y <= 1;
+          color_index <= color_index + 1;
+        end
+        if (logo_top + 1 == DISPLAY_HEIGHT - LOGO_SIZE && dir_y) begin
+          dir_y <= 0;
+          color_index <= color_index + 1;
         end
       end
     end
