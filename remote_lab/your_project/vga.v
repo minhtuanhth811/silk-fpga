@@ -26,8 +26,8 @@ module top_module(
     .hsync(hsync),
     .vsync(vsync),
     .display_on(video_active),
-    .abs_x(x),
-    .abs_y(y)
+    .abs_x(pix_x),
+    .abs_y(pix_y)
   );
   // --- Cài đặt Kích thước và Tọa độ ---
     parameter GROUND_Y = 320; 
