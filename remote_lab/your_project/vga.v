@@ -3,9 +3,9 @@
 
 module top_module(
   input wire       clk,
-  output wire      hsync,
-  output wire      vsync,
-  output wire      video_active,
+  output reg      hsync,
+  output reg      vsync,
+  output reg      video_active,
   output reg [1:0] r,
   output reg [1:0] g,
   output reg [1:0] b,
