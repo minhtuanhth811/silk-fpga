@@ -31,11 +31,12 @@ module top_module(
   localparam HEIGHT_PIX = 480;
   reg [9:0] x = 0;
   reg [9:0] y = 0;
-  reg [5:0] color = 0;
+  reg [2:0] color = 0;
   reg [5:0] frame_count = 0;
-  assign r = color[5:4];
-  assign g = color[3:2];
-  assign b = color[1:0];
+  palette palette_inst(
+    .color_index(color),
+    .rrggbb({r,g,b})
+  )
   always @(posedge clk) begin
     //có kẽ sẽ có lỗi logic lấy mốc 0 lệch
     // 0 trong code là tính từ trước back porch porch -> video -> porch -> retrace
