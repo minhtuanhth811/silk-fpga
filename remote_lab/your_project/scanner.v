@@ -35,9 +35,12 @@
       hsync <= ~(abs_x >= H_RETRACE_START && abs_x <= H_RETRACE_END);
       if(hmax) abs_x <= 0; else abs_x <= abs_x + 1;
     end
+    //lỗi ở đây
     always @(posedge clk) begin
       vsync <= ~(abs_y >= V_RETRACE_START && abs_y <= V_RETRACE_END);
-      if(vmax) abs_y <= 0; else abs_y <= abs_y + 1;
+      if(hmax) begin
+        if(vmax) abs_y <= 0; else abs_y <= abs_y + 1;
+      end
     end
   
     assign display_on = (abs_x < H_DISPLAY) && (abs_y < V_DISPLAY);
