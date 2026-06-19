@@ -100,8 +100,7 @@ module top_module (
       prev_y      <= 0;
     end else begin
       prev_y <= pix_y;
-      if (pix_y == 0 && pix_x == 0) begin
-        if (pix_y == 0 && prev_y != pix_y) begin
+        if (pix_y == 0 && prev_y != pix_y) begin // cái này check đầu mỗi frame, thay pix_x == 0 && pix_y == 0 dễ hiểu hơn
           logo_left <= logo_left + (dir_x ? 1 : -1);
           logo_top  <= logo_top + (dir_y ? 1 : -1);
           
