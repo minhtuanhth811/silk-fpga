@@ -28,14 +28,14 @@ module top_module(
     .display_on(video_active),
     .abs_x(x),
     .abs_y(y)
-  )
+  );
   always @(posedge clk) begin
     if(x == 0 && y ==0) begin
       if (frame_count == 29) begin
         frame_count <= 0;
         color <= color + 1;
       end
-      else frame_count <= frame_count + 1
+      else frame_count <= frame_count + 1;
     end
   end
 endmodule
