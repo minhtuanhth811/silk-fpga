@@ -25,9 +25,9 @@ module top_module(
     //có kẽ sẽ có lỗi logic lấy mốc 0 lệch
     // 0 trong code là tính từ trước back porch porch -> video -> porch -> retrace
     // co thể có lỗi logic video -> porch -> retrace -> porch cho vsync, hsync khác
-    if (x >= 48 && x <= 687 && y >= 33 && y <= 512) video_active <= 1; else video_active <= 0
-    if ((x >= 0 && x <= 703)) hsync <= 1; else hsync <= 0;
-    if ((y >= 0 && y <= 522)) vsync <= 1; else vsync <= 0;
+    if (x >= 48 && x <= 687 && y >= 33 && y <= 512) video_active <= 1; else video_active <= 0;
+    if (x >= 0 && x <= 703) hsync <= 1; else hsync <= 0;
+    if (y >= 0 && y <= 522) vsync <= 1; else vsync <= 0;
 
     // co le se co bug de if(y==524) ở ngoài if(x==799) để gây ra lỗi logic mất dòng cuối
     if (x == 799) begin  
