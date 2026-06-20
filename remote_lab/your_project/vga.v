@@ -145,9 +145,9 @@ module top_module(
     wire dino_pixel_on;
 
     dino_sprite my_dino (
-        .x(local_dino_x[6:2]), 
-        .y(local_dino_y[6:2]),
-        .pixel(dino_pixel_on)
+      .x(local_dino_x[6:1]), 
+      .y(local_dino_y[6:1]),
+      .pixel(dino_pixel_on)
     );
 
     wire draw_dino   = (pix_x >= DINO_X) && (pix_x < DINO_X + DINO_W) &&
