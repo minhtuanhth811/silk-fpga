@@ -34,15 +34,15 @@ module top_module(
 
     // Cài đặt Khủng long (Dino)
     parameter DINO_SIZE = 20; 
-    parameter ZOOM = 4;       // Phóng to 4x
+    parameter ZOOM = 2;       // Phóng to 4x
     parameter DINO_W = DINO_SIZE * ZOOM; // 80 pixel
     parameter DINO_H = DINO_SIZE * ZOOM; // 80 pixel
     parameter DINO_X = 60;      
     localparam DINO_START_Y = GROUND_Y - DINO_H; // 320 - 80 = 240
 
     // Cài đặt Xương rồng (Cactus)
-    parameter CAC_W = 20;
-    parameter CAC_H = 60;
+    parameter CAC_W = 10;
+    parameter CAC_H = 40;
     parameter CAC_START_X = 640; // Xuất phát từ mép phải màn hình
     parameter CAC_SPEED = 6;     // Tốc độ chạy của xương rồng
     wire [9:0] cac_y = GROUND_Y - CAC_H;
@@ -120,12 +120,12 @@ module top_module(
                     // ---- XỬ LÝ KHỦNG LONG NHẢY ----
                     if (dino_y_reg < DINO_START_Y) begin
                         dino_y_reg <= dino_y_reg + dino_vy;
-                        dino_vy    <= dino_vy + 1; // Trọng lực
+                        dino_vy    <= dino_vy + 2; // Trọng lực
                     end else begin
                         dino_y_reg <= DINO_START_Y;
                         if (jump_latched) begin
-                            dino_vy    <= -14; // Lực bật nhảy
-                            dino_y_reg <= DINO_START_Y - 14; 
+                            dino_vy    <= -28; // Lực bật nhảy
+                            dino_y_reg <= DINO_START_Y - 28; 
                         end else begin
                             dino_vy    <= 0;
                         end
