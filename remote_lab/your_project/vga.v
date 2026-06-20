@@ -112,7 +112,7 @@ module top_module(
                 end
             end else begin
                 // Kiểm tra chết ở đầu khung hình
-                if (collision) begin
+                if (collision_latched) begin
                     game_over <= 1;
                 end else begin
                     // ---- XỬ LÝ XƯƠNG RỒNG CHẠY ----
