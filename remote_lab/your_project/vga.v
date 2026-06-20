@@ -38,7 +38,7 @@ module top_module(
     parameter DINO_W = DINO_SIZE * ZOOM; // 80 pixel
     parameter DINO_H = DINO_SIZE * ZOOM; // 80 pixel
     parameter DINO_X = 60;      
-    wire [9:0] dino_y = GROUND_Y - DINO_H; 
+    localparam DINO_START_Y = GROUND_Y - DINO_H; // 320 - 80 = 240
 
     // Cài đặt Xương rồng (Cactus)
     parameter CAC_W = 20;
