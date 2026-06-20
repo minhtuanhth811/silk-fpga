@@ -43,109 +43,144 @@ module top_module(
     // Cài đặt Xương rồng (Cactus)
     parameter CAC_W = 20;
     parameter CAC_H = 60;
-    parameter CAC_X = 500;      
-    wire [9:0] cac_y = GROUND_Y - CAC_H;   
+    parameter CAC_START_X = 640; // Xuất phát từ mép phải màn hình
+    parameter CAC_SPEED = 6;     // Tốc độ chạy của xương rồng
+    wire [9:0] cac_y = GROUND_Y - CAC_H;
 
-
-    // Khai báo kiểu SIGNED (có dấu) để làm toán cộng trừ vận tốc âm/dương
+    // ==========================================
+    // 1. THANH GHI TRẠNG THÁI (STATE REGISTERS)
+    // ==========================================
     reg signed [10:0] dino_y_reg = DINO_START_Y;
     reg signed [10:0] dino_vy = 0;
-    
-    // 1. Mạch bắt cạnh lên (posedge) của công tắc SW[0]
+    reg [9:0] cac_x = CAC_START_X;
+    reg game_over = 0; // Cờ trạng thái: 0 = Đang chơi, 1 = Chết
+
+    // ==========================================
+    // 2. MẠCH ĐỌC NÚT BẤM (EDGE DETECTOR)
+    // ==========================================
     reg sw0_dly;
     always @(posedge clk) begin
         if (~rst_n) sw0_dly <= 1'b0;
         else        sw0_dly <= SW[0];
     end
-    wire jump_edge = SW[0] && !sw0_dly; // Bật lên 1 chu kỳ clock khi gạt công tắc
+    wire jump_edge = SW[0] && !sw0_dly;
 
-    // 2. Mạch chốt lệnh nhảy (LATCH) chờ xử lý ở đầu Frame
     reg jump_latched = 0;
+    wire frame_tick = (pix_x == 0 && pix_y == 0); // Kích hoạt 1 lần mỗi khung hình (60Hz)
+
     always @(posedge clk) begin
-        if (~rst_n) begin
-            jump_latched <= 0;
+        if (~rst_n || game_over) begin
+            jump_latched <= 0; // Xóa chốt nhảy nếu chết
         end else begin
             if (jump_edge) 
-                jump_latched <= 1; // Giữ lệnh muốn nhảy
+                jump_latched <= 1;
             else if (frame_tick && (dino_y_reg >= DINO_START_Y))
-                jump_latched <= 0; // Xóa lệnh sau khi đã thực hiện cú nhảy trên mặt đất
+                jump_latched <= 0;
         end
     end
+    // ==========================================
+    // 3. THUẬT TOÁN VA CHẠM AABB (COLLISION)
+    // ==========================================
+    /* Hitbox Optimization: Cộng/trừ đi một lượng dung sai (margin = 10) 
+       vào các cạnh để Khủng long không bị chết oan do khoảng trắng. */
+    wire collision = (DINO_X + 10 < cac_x + CAC_W) && 
+                     (DINO_X + DINO_W - 10 > cac_x) && 
+                     (dino_y_reg + 10 < cac_y + CAC_H) && 
+                     (dino_y_reg + DINO_H > cac_y);
 
-    // Xung kích hoạt tính toán vật lý: Chỉ chạy 1 lần khi sang Frame mới (60Hz)
-    wire frame_tick = (pix_x == 0 && pix_y == 0);
-
-    // 3. Khối tính toán Trọng lực và Vị trí qua từng Frame
+    // ==========================================
+    // 4. GAME ENGINE CHÍNH (VẬT LÝ & DI CHUYỂN)
+    // ==========================================
     always @(posedge clk) begin
         if (~rst_n) begin
             dino_y_reg <= DINO_START_Y;
             dino_vy    <= 0;
+            cac_x      <= CAC_START_X;
+            game_over  <= 0;
         end else if (frame_tick) begin
-            if (dino_y_reg < DINO_START_Y) begin
-                // TRẠNG THÁI TRÊN KHÔNG: Rơi tự do
-                dino_y_reg <= dino_y_reg + dino_vy;  // Cập nhật vị trí bằng vận tốc hiện tại
-                dino_vy    <= dino_vy + 1;           // Trọng lực: Gia tăng vận tốc rơi (+1 mỗi frame)
-            end else begin
-                // TRẠNG THÁI MẶT ĐẤT: Đứng yên chờ lệnh
-                dino_y_reg <= DINO_START_Y;
-                if (jump_latched) begin
-                    dino_vy    <= -14; // Lực nhảy ban đầu (dấu âm để kéo tọa độ Y giảm, tức là bay lên)
-                    dino_y_reg <= DINO_START_Y - 14; // Nhấc nhẹ thân lên để thoát khỏi điều kiện mặt đất ở frame sau
-                end else begin
+            if (game_over) begin
+                // TRẠNG THÁI GAME OVER: Đứng im. Chờ bấm nhảy để Reset
+                if (jump_edge) begin
+                    game_over  <= 0;
+                    cac_x      <= CAC_START_X;
+                    dino_y_reg <= DINO_START_Y;
                     dino_vy    <= 0;
+                end
+            end else begin
+                // Kiểm tra chết ở đầu khung hình
+                if (collision) begin
+                    game_over <= 1;
+                end else begin
+                    // ---- XỬ LÝ XƯƠNG RỒNG CHẠY ----
+                    if (cac_x <= CAC_SPEED) 
+                        cac_x <= CAC_START_X; // Cuốn chiếu vòng lại
+                    else 
+                        cac_x <= cac_x - CAC_SPEED;
+                    
+                    // ---- XỬ LÝ KHỦNG LONG NHẢY ----
+                    if (dino_y_reg < DINO_START_Y) begin
+                        dino_y_reg <= dino_y_reg + dino_vy;
+                        dino_vy    <= dino_vy + 1; // Trọng lực
+                    end else begin
+                        dino_y_reg <= DINO_START_Y;
+                        if (jump_latched) begin
+                            dino_vy    <= -14; // Lực bật nhảy
+                            dino_y_reg <= DINO_START_Y - 14; 
+                        end else begin
+                            dino_vy    <= 0;
+                        end
+                    end
                 end
             end
         end
     end
 
-    // Ép kiểu ngược từ signed reg về wire unsigned 10-bit để đưa vào mạch hiển thị
     wire [9:0] dino_y = dino_y_reg[9:0];
-    // --- Logic vẽ Khủng long từ ROM ---
-    // Tính tọa độ nội bộ của Dino (0 -> 79)
+
+    // ==========================================
+    // 5. MẠCH RENDER ĐỒ HỌA
+    // ==========================================
     wire [9:0] local_dino_x = pix_x - DINO_X;
     wire [9:0] local_dino_y = pix_y - dino_y;
     wire dino_pixel_on;
-    
-    // Trích xuất bit [6:2] tương đương chia 4 để tạo hiệu ứng Zoom 4x
+
     dino_sprite my_dino (
         .x(local_dino_x[6:2]), 
         .y(local_dino_y[6:2]),
         .pixel(dino_pixel_on)
     );
 
-    // --- Cờ Vẽ (Draw Flags) ---
-    // Kiểm tra tia quét có đang nằm lọt trong Bounding Box hay không
-    wire in_dino_box = (pix_x >= DINO_X) && (pix_x < DINO_X + DINO_W) &&
-                       (pix_y >= dino_y) && (pix_y < dino_y + DINO_H);
+    wire draw_dino   = (pix_x >= DINO_X) && (pix_x < DINO_X + DINO_W) &&
+                       (pix_y >= dino_y) && (pix_y < dino_y + DINO_H) &&
+                       dino_pixel_on;
                        
-    wire draw_dino   = in_dino_box && dino_pixel_on; // Chỉ vẽ khi bit trong ROM = 1
-
-    wire draw_cactus = (pix_x >= CAC_X) && (pix_x < CAC_X + CAC_W) &&
+    wire draw_cactus = (pix_x >= cac_x) && (pix_x < cac_x + CAC_W) &&
                        (pix_y >= cac_y) && (pix_y < cac_y + CAC_H);
-
+                       
     wire draw_ground = (pix_y == GROUND_Y) || (pix_y == GROUND_Y + 1);
 
-    // --- Xuất màu ra màn hình ---
     always @(posedge clk) begin
         if (~rst_n) begin
-            r <= 2'b11; g <= 2'b11; b <= 2'b11;
+            r <= 2'b00; g <= 2'b00; b <= 2'b00;
         end else begin
             if (video_active) begin
-                // Trộn màu theo thứ tự ưu tiên (Lớp trên vẽ trước)
                 if (draw_dino) begin
-                    r <= 2'b00; g <= 2'b00; b <= 2'b00; // Xanh lá cây
+                    // Nếu chết (game_over = 1), biến thành màu ĐỎ. Bình thường màu XANH LÁ.
+                    r <= game_over ? 2'b11 : 2'b00; 
+                    g <= game_over ? 2'b00 : 2'b11; 
+                    b <= 2'b00; 
                 end else if (draw_cactus) begin
-                    r <= 2'b11; g <= 2'b00; b <= 2'b00; // Đỏ
+                    r <= 2'b11; g <= 2'b00; b <= 2'b00; // Cây xương rồng đỏ
                 end else if (draw_ground) begin
-                    r <= 2'b00; g <= 2'b00; b <= 2'b00; // đen
+                    r <= 2'b11; g <= 2'b11; b <= 2'b11; // Nền đất trắng
                 end else begin
-                    r <= 2'b11; g <= 2'b11; b <= 2'b11; // Nền trắng
+                    r <= 2'b00; g <= 2'b00; b <= 2'b00; // Bầu trời đen
                 end
             end else begin
-                // Video Blanking: Bắt buộc tắt màu khi ra ngoài khung nhìn
-                r <= 2'b00; g <= 2'b00; b <= 2'b00; 
+                r <= 2'b00; g <= 2'b00; b <= 2'b00; // Blanking
             end
         end
     end
 
 endmodule
+
