@@ -83,10 +83,7 @@ module top_module(
     // ==========================================
     /* Hitbox Optimization: Cộng/trừ đi một lượng dung sai (margin = 10) 
        vào các cạnh để Khủng long không bị chết oan do khoảng trắng. */
-    wire collision = (DINO_X + 10 < cac_x + CAC_W) && 
-                     (DINO_X + DINO_W - 10 > cac_x) && 
-                     (dino_y_reg + 10 < cac_y + CAC_H) && 
-                     (dino_y_reg + DINO_H > cac_y);
+    wire collision = (draw_dino == 1) && (draw_cactus == 1);
 
     // ==========================================
     // 4. GAME ENGINE CHÍNH (VẬT LÝ & DI CHUYỂN)
@@ -142,12 +139,20 @@ module top_module(
     // ==========================================
     wire [9:0] local_dino_x = pix_x - DINO_X;
     wire [9:0] local_dino_y = pix_y - dino_y;
+    wire [9:0] local_cac_x = pix_x - cac_x;
+    wire [9:0] local_cac_y = pix_y - cac_y;
     wire dino_pixel_on;
+    wire cac_pixel_on
 
     dino_sprite my_dino (
       .x(local_dino_x[6:1]), 
       .y(local_dino_y[6:1]),
       .pixel(dino_pixel_on)
+    );
+    cactus_sprite my_cactus(
+      .x(local_cac_x),
+      .y(local_cac_y),
+      .pixel(cac_pixel_on)
     );
 
     wire draw_dino   = (pix_x >= DINO_X) && (pix_x < DINO_X + DINO_W) &&
@@ -155,7 +160,8 @@ module top_module(
                        dino_pixel_on;
                        
     wire draw_cactus = (pix_x >= cac_x) && (pix_x < cac_x + CAC_W) &&
-                       (pix_y >= cac_y) && (pix_y < cac_y + CAC_H);
+                       (pix_y >= cac_y) && (pix_y < cac_y + CAC_H) &&
+                       cac_pixel_on;
                        
     wire draw_ground = (pix_y == GROUND_Y) || (pix_y == GROUND_Y + 1);
 
