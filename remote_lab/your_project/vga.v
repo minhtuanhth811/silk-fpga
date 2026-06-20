@@ -120,12 +120,12 @@ module top_module(
                     // ---- XỬ LÝ KHỦNG LONG NHẢY ----
                     if (dino_y_reg < DINO_START_Y) begin
                         dino_y_reg <= dino_y_reg + dino_vy;
-                        dino_vy    <= dino_vy + 2; // Trọng lực
+                        dino_vy    <= dino_vy + 1; // Trọng lực
                     end else begin
                         dino_y_reg <= DINO_START_Y;
                         if (jump_latched) begin
-                            dino_vy    <= -28; // Lực bật nhảy
-                            dino_y_reg <= DINO_START_Y - 28; 
+                            dino_vy    <= -12; // Lực bật nhảy
+                            dino_y_reg <= DINO_START_Y - 12; 
                         end else begin
                             dino_vy    <= 0;
                         end
