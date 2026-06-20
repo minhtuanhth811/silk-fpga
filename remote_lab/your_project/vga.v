@@ -83,7 +83,14 @@ module top_module(
     // ==========================================
     /* Hitbox Optimization: Cộng/trừ đi một lượng dung sai (margin = 10) 
        vào các cạnh để Khủng long không bị chết oan do khoảng trắng. */
+    reg collision_latched = 0;
     wire collision = (draw_dino == 1) && (draw_cactus == 1);
+    always @(posedge clk) begin
+      if (~rst_n || game_over) begin
+        collision_latched <= 0;
+      end
+      else if (collision == 1) collision_latched <= 1;
+    end
 
     // ==========================================
     // 4. GAME ENGINE CHÍNH (VẬT LÝ & DI CHUYỂN)
