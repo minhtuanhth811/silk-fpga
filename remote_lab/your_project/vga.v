@@ -16,10 +16,10 @@ module top_module(
   reg [9:0] pix_y;
   reg [2:0] color = 0;
   reg [5:0] frame_count = 0;
-  palette palette_inst(
-    .color_index(color),
-    .rrggbb({r,g,b})
-  );
+  // palette palette_inst(
+  //   .color_index(color),
+  //   .rrggbb({r,g,b})
+  // );
   scanner scanner_inst(
     .clk(clk),
     .reset(~rst_n), //loi o day nữa, do rst_n khi không ân luôn là 1
@@ -30,7 +30,7 @@ module top_module(
     .abs_y(pix_y)
   );
   // --- Cài đặt Kích thước và Tọa độ ---
-    parameter GROUND_Y = 320; 
+    parameter GROUND_Y = 420; 
 
     // Cài đặt Khủng long (Dino)
     parameter DINO_SIZE = 20; 
@@ -43,7 +43,7 @@ module top_module(
     // Cài đặt Xương rồng (Cactus)
     parameter CAC_W = 20;
     parameter CAC_H = 60;
-    parameter CAC_X = 400;      
+    parameter CAC_X = 500;      
     wire [9:0] cac_y = GROUND_Y - CAC_H;   
 
     // --- Logic vẽ Khủng long từ ROM ---
@@ -74,18 +74,18 @@ module top_module(
     // --- Xuất màu ra màn hình ---
     always @(posedge clk) begin
         if (~rst_n) begin
-            r <= 2'b00; g <= 2'b00; b <= 2'b00;
+            r <= 2'b11; g <= 2'b11; b <= 2'b11;
         end else begin
             if (video_active) begin
                 // Trộn màu theo thứ tự ưu tiên (Lớp trên vẽ trước)
                 if (draw_dino) begin
-                    r <= 2'b00; g <= 2'b11; b <= 2'b00; // Xanh lá cây
+                    r <= 2'b00; g <= 2'b00; b <= 2'b00; // Xanh lá cây
                 end else if (draw_cactus) begin
                     r <= 2'b11; g <= 2'b00; b <= 2'b00; // Đỏ
                 end else if (draw_ground) begin
-                    r <= 2'b11; g <= 2'b11; b <= 2'b11; // Trắng
+                    r <= 2'b00; g <= 2'b00; b <= 2'b00; // đen
                 end else begin
-                    r <= 2'b00; g <= 2'b00; b <= 2'b00; // Nền đen
+                    r <= 2'b11; g <= 2'b11; b <= 2'b11; // Nền trắng
                 end
             end else begin
                 // Video Blanking: Bắt buộc tắt màu khi ra ngoài khung nhìn
