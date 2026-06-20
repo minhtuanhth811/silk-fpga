@@ -26,6 +26,6 @@ initial begin
     mem[72] = 8'he0;     mem[73] = 8'h01;     mem[74] = 8'h00;     mem[75] = 8'h00;
     mem[76] = 8'he0;     mem[77] = 8'h01;     mem[78] = 8'h00;     mem[79] = 8'h00;
   end
-  wire [6:0] addr = {y[4:0],x[4,3]};
+  wire [6:0] addr = {y[4:0],x[4:3]};
   assign pixel = mem[addr][x[2:0]];
 endmodule 
