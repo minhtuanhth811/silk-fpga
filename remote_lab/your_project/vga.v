@@ -41,8 +41,8 @@ module top_module(
     localparam DINO_START_Y = GROUND_Y - DINO_H; // 320 - 80 = 240
 
     // Cài đặt Xương rồng (Cactus)
-    parameter CAC_W = 10;
-    parameter CAC_H = 40;
+    parameter CAC_W = 20;
+    parameter CAC_H = 20;
     parameter CAC_START_X = 640; // Xuất phát từ mép phải màn hình
     parameter CAC_SPEED = 6;     // Tốc độ chạy của xương rồng
     wire [9:0] cac_y = GROUND_Y - CAC_H;
