@@ -142,16 +142,16 @@ module top_module(
     wire [9:0] local_cac_x = pix_x - cac_x;
     wire [9:0] local_cac_y = pix_y - cac_y;
     wire dino_pixel_on;
-    wire cac_pixel_on
+    wire cac_pixel_on;
 
     dino_sprite my_dino (
-      .x(local_dino_x[6:1]), 
-      .y(local_dino_y[6:1]),
+      .x(local_dino_x[5:1]), 
+      .y(local_dino_y[5:1]),
       .pixel(dino_pixel_on)
     );
     cactus_sprite my_cactus(
-      .x(local_cac_x),
-      .y(local_cac_y),
+      .x(local_cac_x[5:1]),
+      .y(local_cac_y[5:1]),
       .pixel(cac_pixel_on)
     );
 
