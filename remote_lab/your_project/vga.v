@@ -46,12 +46,66 @@ module top_module(
     parameter CAC_X = 500;      
     wire [9:0] cac_y = GROUND_Y - CAC_H;   
 
+
+    // Khai báo kiểu SIGNED (có dấu) để làm toán cộng trừ vận tốc âm/dương
+    reg signed [10:0] dino_y_reg = DINO_START_Y;
+    reg signed [10:0] dino_vy = 0;
+    
+    // 1. Mạch bắt cạnh lên (posedge) của công tắc SW[0]
+    reg sw0_dly;
+    always @(posedge clk) begin
+        if (~rst_n) sw0_dly <= 1'b0;
+        else        sw0_dly <= SW[0];
+    end
+    wire jump_edge = SW[0] && !sw0_dly; // Bật lên 1 chu kỳ clock khi gạt công tắc
+
+    // 2. Mạch chốt lệnh nhảy (LATCH) chờ xử lý ở đầu Frame
+    reg jump_latched = 0;
+    always @(posedge clk) begin
+        if (~rst_n) begin
+            jump_latched <= 0;
+        end else begin
+            if (jump_edge) 
+                jump_latched <= 1; // Giữ lệnh muốn nhảy
+            else if (frame_tick && (dino_y_reg >= DINO_START_Y))
+                jump_latched <= 0; // Xóa lệnh sau khi đã thực hiện cú nhảy trên mặt đất
+        end
+    end
+
+    // Xung kích hoạt tính toán vật lý: Chỉ chạy 1 lần khi sang Frame mới (60Hz)
+    wire frame_tick = (pix_x == 0 && pix_y == 0);
+
+    // 3. Khối tính toán Trọng lực và Vị trí qua từng Frame
+    always @(posedge clk) begin
+        if (~rst_n) begin
+            dino_y_reg <= DINO_START_Y;
+            dino_vy    <= 0;
+        end else if (frame_tick) begin
+            if (dino_y_reg < DINO_START_Y) begin
+                // TRẠNG THÁI TRÊN KHÔNG: Rơi tự do
+                dino_y_reg <= dino_y_reg + dino_vy;  // Cập nhật vị trí bằng vận tốc hiện tại
+                dino_vy    <= dino_vy + 1;           // Trọng lực: Gia tăng vận tốc rơi (+1 mỗi frame)
+            end else begin
+                // TRẠNG THÁI MẶT ĐẤT: Đứng yên chờ lệnh
+                dino_y_reg <= DINO_START_Y;
+                if (jump_latched) begin
+                    dino_vy    <= -14; // Lực nhảy ban đầu (dấu âm để kéo tọa độ Y giảm, tức là bay lên)
+                    dino_y_reg <= DINO_START_Y - 14; // Nhấc nhẹ thân lên để thoát khỏi điều kiện mặt đất ở frame sau
+                end else begin
+                    dino_vy    <= 0;
+                end
+            end
+        end
+    end
+
+    // Ép kiểu ngược từ signed reg về wire unsigned 10-bit để đưa vào mạch hiển thị
+    wire [9:0] dino_y = dino_y_reg[9:0];
     // --- Logic vẽ Khủng long từ ROM ---
     // Tính tọa độ nội bộ của Dino (0 -> 79)
     wire [9:0] local_dino_x = pix_x - DINO_X;
     wire [9:0] local_dino_y = pix_y - dino_y;
     wire dino_pixel_on;
-
+    
     // Trích xuất bit [6:2] tương đương chia 4 để tạo hiệu ứng Zoom 4x
     dino_sprite my_dino (
         .x(local_dino_x[6:2]), 
