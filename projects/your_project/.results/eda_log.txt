@@ -1,7 +1,13 @@
 === BẮT ĐẦU SILK-EDA ===
-✅ Top Module: vga.v
-✅ Testbench: tb_scanner.v
+✅ Top Module: top_module
+✅ Testbench: tb_scanner
 === 0/4: Đang kiểm tra lỗi cú pháp và logic (Linting) ===
-%Error: Specified --top-module 'vga.v' was not found in design.
-%Error: Exiting due to 1 error(s)
-🛑 Hãy đọc kỹ log cảnh báo (Error/Warning) ở trên, sửa lỗi và push lại.
+✅ Code RTL vượt qua Verilator linting.
+=== 1/4: Đang tạo Module Documentation ===
+=== 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
+=== 3/4: Đang vẽ Schematic và FSM ===
+=== 4/4: Đang mô phỏng và tạo sóng ===
+tb/tb_scanner.v:44: syntax error
+tb/tb_scanner.v:44: error: Malformed event control expression.
+tb/tb_scanner.v:44: error: Invalid event control.
+❌ LỖI: Biên dịch Icarus Verilog thất bại!
