@@ -12,6 +12,8 @@ module tb_scanner;
     wire display_on;
     wire [9:0] abs_x;
     wire [9:0] abs_y;
+
+
 //bước 2: thêm module cần test
     scanner uut(
         .clk(clk),
@@ -22,8 +24,11 @@ module tb_scanner;
         .abs_x(abs_x),
         .abs_y(abs_y)
     );
+
+
 // bước 3: tạo thạch anh ảo
     always #20 clk = ~clk;
+
 
 // bước 4: tạo kịch bản test
     initial begin
@@ -40,10 +45,14 @@ module tb_scanner;
 
         $finish;
     end
+
+
 // bước 5: đặt print giám sát
     always @(posedge clk) begin
         if(abs_x == 0 && abs_y > 0 && abs_y < 5) begin
             $display("Time: %0t ns | Quet xong hang ngang. abs_y dang o dong: %d", $time, abs_y);
         end
     end
+
+
 endmodule
