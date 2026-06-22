@@ -54,7 +54,7 @@ module top_module(
   reg jump_latch;
   wire jumping;
   wire edge_detector = !prev_sw & SW[0];
-  wire reset_n = rst_n & !(game_over & edge_detector));
+  wire reset_n = rst_n & !(game_over & edge_detector);
   always @(posedge clk) begin
     if (~rst_n) prev_sw <= 0;
     else prev_sw <= SW[0];
