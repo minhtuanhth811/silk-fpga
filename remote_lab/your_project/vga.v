@@ -31,6 +31,7 @@ module top_module(
     .abs_x(pix_x),
     .abs_y(pix_y),
     .rst_n(reset_n),
+    .game_over(game_over),
     .draw_dino(draw_dino),
     .command(jumplatch),
     .state(jumping)
@@ -40,6 +41,7 @@ module top_module(
     .abs_x(pix_x),
     .abs_y(pix_y),
     .rst_n(reset_n),
+    .game_over(game_over),
     .draw_cactus(draw_cactus)
   );
   
