@@ -5,7 +5,7 @@
     input wire       clk,
     output reg      hsync,
     output reg      vsync,
-    output reg      display_on,
+    output wire      display_on,
     output reg [9:0] abs_x,
     output reg [9:0] abs_y,
     input wire       reset

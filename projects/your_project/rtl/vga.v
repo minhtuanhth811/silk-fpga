@@ -3,19 +3,19 @@
 
 module top_module(
   input wire       clk,
-  output reg      hsync,
-  output reg      vsync,
-  output reg      video_active,
+  output wire      hsync,
+  output wire      vsync,
+  output wire      video_active,
   output reg [1:0] r,
   output reg [1:0] g,
   output reg [1:0] b,
   input wire       rst_n,
   input wire [7:0] SW
 );
-  reg [9:0] pix_x;
-  reg [9:0] pix_y;
-  reg draw_dino;
-  reg draw_cactus;
+  wire [9:0] pix_x;
+  wire [9:0] pix_y;
+  wire draw_dino;
+  wire draw_cactus;
   reg [5:0] frame_count = 0;
   
   scanner scanner_inst(
