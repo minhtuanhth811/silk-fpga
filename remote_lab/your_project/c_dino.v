@@ -35,11 +35,12 @@ module c_dino
     // ==========================================
     // 3. GAME ENGINE CHÍNH (VẬT LÝ & DI CHUYỂN)
     // ==========================================
+    wire frame_tick = (pix_x == 0) & (pix_y == 0);
     always @(posedge clk) begin
         if (~rst_n) begin
             dino_y_reg <= DINO_START_Y;
             dino_vy    <= 0;
-            jumping <= 0;
+            state <= 0;
         end else if (frame_tick) begin
           if (game_over) begin
           end else begin
@@ -49,11 +50,11 @@ module c_dino
                   dino_vy    <= dino_vy + 1; // Trọng lực
               end else begin
                   dino_y_reg <= DINO_START_Y;
-                  jumping <= 0;
+                  state <= 0;
                   if (command) begin
                       dino_vy    <= -12; // Lực bật nhảy
                       dino_y_reg <= DINO_START_Y - 12; 
-                      jumping <= 1;
+                      state <= 1;
                   end else begin
                       dino_vy    <= 0;
                   end
