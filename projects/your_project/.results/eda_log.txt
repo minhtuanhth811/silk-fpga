@@ -7,7 +7,29 @@
 === 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
 === 3/4: Đang vẽ Schematic và FSM ===
 === 4/4: Đang mô phỏng và tạo sóng ===
-tb/tb_scanner.v:44: syntax error
-tb/tb_scanner.v:44: error: Malformed event control expression.
-tb/tb_scanner.v:44: error: Invalid event control.
+rtl/scanner.v:46: error: reg display_on; cannot be driven by primitives or continuous assignment.
+rtl/scanner.v:46: error: reg display_on; cannot be driven by primitives or continuous assignment.
+rtl/vga.v:24: error: reg hsync; cannot be driven by primitives or continuous assignment.
+rtl/vga.v:24: error: Output port expression must support continuous assignment.
+rtl/vga.v:24:      : Port 2 (hsync) of scanner is connected to hsync
+rtl/vga.v:25: error: reg vsync; cannot be driven by primitives or continuous assignment.
+rtl/vga.v:25: error: Output port expression must support continuous assignment.
+rtl/vga.v:25:      : Port 3 (vsync) of scanner is connected to vsync
+rtl/vga.v:26: error: reg video_active; cannot be driven by primitives or continuous assignment.
+rtl/vga.v:26: error: Output port expression must support continuous assignment.
+rtl/vga.v:26:      : Port 4 (display_on) of scanner is connected to video_active
+rtl/vga.v:27: error: reg pix_x; cannot be driven by primitives or continuous assignment.
+rtl/vga.v:27: error: Output port expression must support continuous assignment.
+rtl/vga.v:27:      : Port 5 (abs_x) of scanner is connected to pix_x
+rtl/vga.v:28: error: reg pix_y; cannot be driven by primitives or continuous assignment.
+rtl/vga.v:28: error: Output port expression must support continuous assignment.
+rtl/vga.v:28:      : Port 6 (abs_y) of scanner is connected to pix_y
+rtl/vga.v:38: error: reg draw_dino; cannot be driven by primitives or continuous assignment.
+rtl/vga.v:38: error: Output port expression must support continuous assignment.
+rtl/vga.v:38:      : Port 6 (draw_dino) of c_dino is connected to draw_dino
+rtl/cactus_sprite.v:30: error: reg pixel; cannot be driven by primitives or continuous assignment.
+rtl/vga.v:49: error: reg draw_cactus; cannot be driven by primitives or continuous assignment.
+rtl/vga.v:49: error: Output port expression must support continuous assignment.
+rtl/vga.v:49:      : Port 4 (draw_cactus) of c_cactus is connected to draw_cactus
+17 error(s) during elaboration.
 ❌ LỖI: Biên dịch Icarus Verilog thất bại!
