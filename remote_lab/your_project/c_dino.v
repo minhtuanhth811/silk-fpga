@@ -9,7 +9,7 @@ module c_dino
     input wire       rst_n,
     input wire       game_over,
     output wire      draw_dino,
-    output wire      state,
+    output reg       state,
     input wire       command
   );
     reg [9:0] pix_x;
