@@ -95,7 +95,7 @@ module top_module(
     // ==========================================
     wire frame_tick = (pix_x == 0) & (pix_y == 0);
     always @(posedge clk) begin
-        if (~rst_n) begin
+        if (~reset_n) begin
             game_over  <= 0;
         end else if (frame_tick) begin
             if (game_over) begin
