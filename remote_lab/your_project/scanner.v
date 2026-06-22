@@ -8,7 +8,7 @@
     output reg      display_on,
     output reg [9:0] abs_x,
     output reg [9:0] abs_y,
-    input wire       reset,
+    input wire       reset
   );
     parameter H_DISPLAY = 640; // lượng pixel nhìn thấy được
     parameter H_LEFT_BOR = 48; // số pixel border bên trái
