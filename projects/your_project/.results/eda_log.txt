@@ -1,0 +1,27 @@
+=== BẮT ĐẦU SILK-EDA ===
+✅ Top Module: vga.v
+✅ Testbench: tb_scanner.v
+=== 0/4: Đang kiểm tra lỗi cú pháp và logic (Linting) ===
+%Warning-PINMISSING: rtl/project.v:101:16: Cell has missing pin: 'hsync'
+  101 |     top_module u_top (
+      |                ^~~~~
+                     ... For warning description see https://verilator.org/warn/PINMISSING?v=5.020
+                     ... Use "/* verilator lint_off PINMISSING */" and lint_on around source to disable this message.
+%Warning-PINMISSING: rtl/project.v:101:16: Cell has missing pin: 'vsync'
+  101 |     top_module u_top (
+      |                ^~~~~
+%Warning-PINMISSING: rtl/project.v:101:16: Cell has missing pin: 'video_active'
+  101 |     top_module u_top (
+      |                ^~~~~
+%Warning-PINMISSING: rtl/project.v:101:16: Cell has missing pin: 'r'
+  101 |     top_module u_top (
+      |                ^~~~~
+%Warning-PINMISSING: rtl/project.v:101:16: Cell has missing pin: 'g'
+  101 |     top_module u_top (
+      |                ^~~~~
+%Warning-PINMISSING: rtl/project.v:101:16: Cell has missing pin: 'b'
+  101 |     top_module u_top (
+      |                ^~~~~
+%Error: Specified --top-module 'vga.v' was not found in design.
+%Error: Exiting due to 1 error(s), 6 warning(s)
+🛑 Hãy đọc kỹ log cảnh báo (Error/Warning) ở trên, sửa lỗi và push lại.
