@@ -3,6 +3,7 @@
 
 module c_dino
   (
+    input wire clk,
     input wire [9:0] abs_x,
     input wire [9:0] abs_y,
     input wire       rst_n,
