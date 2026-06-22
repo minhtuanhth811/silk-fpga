@@ -31,14 +31,8 @@ module c_cactus(
   always @(posedge clk) begin
       if (~rst_n) begin
           cac_x      <= CAC_START_X;
-          game_over  <= 0;
       end else if (frame_tick) begin
           if (game_over) begin
-              // TRẠNG THÁI GAME OVER: Đứng im. Chờ bấm nhảy để Reset
-              if (jump_latch) begin
-                  game_over  <= 0;
-                  cac_x      <= CAC_START_X;
-              end
           end else begin
                 // ---- XỬ LÝ XƯƠNG RỒNG CHẠY ----
                 if (cac_x <= CAC_SPEED) 
