@@ -12,8 +12,6 @@ module c_dino
     output reg       state,
     input wire       command
   );
-    reg [9:0] pix_x;
-    reg [9:0] pix_y;
 
     parameter GROUND_Y = 420; 
 
@@ -35,7 +33,7 @@ module c_dino
     // ==========================================
     // 3. GAME ENGINE CHÍNH (VẬT LÝ & DI CHUYỂN)
     // ==========================================
-    wire frame_tick = (pix_x == 0) & (pix_y == 0);
+    wire frame_tick = (abs_x == 0) & (abs_y == 0);
     always @(posedge clk) begin
         if (~rst_n) begin
             dino_y_reg <= DINO_START_Y;
@@ -68,8 +66,8 @@ module c_dino
     // ==========================================
     // 5. MẠCH RENDER ĐỒ HỌA
     // ==========================================
-    wire [9:0] local_dino_x = pix_x - DINO_X;
-    wire [9:0] local_dino_y = pix_y - dino_y;
+    wire [9:0] local_dino_x = abs_x - DINO_X;
+    wire [9:0] local_dino_y = abs_y - dino_y;
     wire dino_pixel_on;
 
     dino_sprite my_dino (
@@ -78,8 +76,8 @@ module c_dino
       .pixel(dino_pixel_on)
     );
 
-    assign draw_dino  = (pix_x >= DINO_X) && (pix_x < DINO_X + DINO_W) &&
-                       (pix_y >= dino_y) && (pix_y < dino_y + DINO_H) &&
+    assign draw_dino  = (abs_x >= DINO_X) && (abs_x < DINO_X + DINO_W) &&
+                       (abs_y >= dino_y) && (abs_y < dino_y + DINO_H) &&
                        dino_pixel_on;
 
 endmodule

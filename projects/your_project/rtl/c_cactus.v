@@ -8,8 +8,6 @@ module c_cactus(
   input wire game_over,
   input wire rst_n
 );
-  reg [9:0] pix_x;
-  reg [9:0] pix_y;
     
   // --- Cài đặt Kích thước và Tọa độ ---
   parameter GROUND_Y = 420; 
@@ -28,7 +26,7 @@ module c_cactus(
   // ==========================================
   // 4. GAME ENGINE CHÍNH (VẬT LÝ & DI CHUYỂN)
   // ==========================================
-  wire frame_tick = (pix_x == 0) & (pix_y == 0);
+  wire frame_tick = (abs_x == 0) & (abs_y == 0);
   always @(posedge clk) begin
       if (~rst_n) begin
           cac_x      <= CAC_START_X;
@@ -47,8 +45,8 @@ module c_cactus(
   // ==========================================
   // 5. MẠCH RENDER ĐỒ HỌA
   // ==========================================
-  wire [9:0] local_cac_x = pix_x - cac_x;
-  wire [9:0] local_cac_y = pix_y - cac_y;
+  wire [9:0] local_cac_x = abs_x - cac_x;
+  wire [9:0] local_cac_y = abs_y - cac_y;
   wire cac_pixel_on;
 
   cactus_sprite my_cactus(
@@ -57,8 +55,8 @@ module c_cactus(
     .pixel(cac_pixel_on)
   );
                      
-  assign draw_cactus = (pix_x >= cac_x) && (pix_x < cac_x + CAC_W) &&
-                     (pix_y >= cac_y) && (pix_y < cac_y + CAC_H) &&
+  assign draw_cactus = (abs_x >= cac_x) && (abs_x < cac_x + CAC_W) &&
+                     (abs_y >= cac_y) && (abs_y < cac_y + CAC_H) &&
                      cac_pixel_on;
                      
 
