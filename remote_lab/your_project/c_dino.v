@@ -38,21 +38,25 @@ module c_dino
         if (~rst_n) begin
             dino_y_reg <= DINO_START_Y;
             dino_vy    <= 0;
+            jumping <= 0;
         end else if (frame_tick) begin
-            // ---- XỬ LÝ KHỦNG LONG NHẢY ----
-            if (dino_y_reg < DINO_START_Y) begin
-                dino_y_reg <= dino_y_reg + dino_vy;
-                dino_vy    <= dino_vy + 1; // Trọng lực
-            end else begin
-                dino_y_reg <= DINO_START_Y;
-                jumping <= 0;
-                if (command) begin
-                    dino_vy    <= -12; // Lực bật nhảy
-                    dino_y_reg <= DINO_START_Y - 12; 
-                    jumping <= 1;
-                end else begin
-                    dino_vy    <= 0;
-                end
+          if (game_over) begin
+          end else begin
+              // ---- XỬ LÝ KHỦNG LONG NHẢY ----
+              if (dino_y_reg < DINO_START_Y) begin
+                  dino_y_reg <= dino_y_reg + dino_vy;
+                  dino_vy    <= dino_vy + 1; // Trọng lực
+              end else begin
+                  dino_y_reg <= DINO_START_Y;
+                  jumping <= 0;
+                  if (command) begin
+                      dino_vy    <= -12; // Lực bật nhảy
+                      dino_y_reg <= DINO_START_Y - 12; 
+                      jumping <= 1;
+                  end else begin
+                      dino_vy    <= 0;
+                  end
+              end
             end
         end
     end
