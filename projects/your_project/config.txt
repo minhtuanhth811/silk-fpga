@@ -1,0 +1,2 @@
+TOP_MODULE = vga.v
+TB_NAME = tb_scanner.v
