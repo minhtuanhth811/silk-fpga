@@ -7,6 +7,10 @@
 === 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
 === 3/4: Đang vẽ Schematic và FSM ===
 === 4/4: Đang mô phỏng và tạo sóng ===
-sim/sim.out: No such file or directory
-error: Code generator failure: -1
-❌ LỖI: Biên dịch Icarus Verilog thất bại!
+VCD info: dumpfile scanner.vcd opened for output.
+Time: 32100000 ns | Quet xong hang ngang. abs_y dang o dong:    1
+Time: 64100000 ns | Quet xong hang ngang. abs_y dang o dong:    2
+Time: 96100000 ns | Quet xong hang ngang. abs_y dang o dong:    3
+tb/tb_scanner.v:46: $finish called at 100100000 (1ps)
+✅ Đã tạo Waveform trong thư mục sim/
+🎉 HOÀN TẤT PIPELINE!
