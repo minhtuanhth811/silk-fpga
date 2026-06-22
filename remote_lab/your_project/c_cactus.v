@@ -1,6 +1,7 @@
 `default_nettype none
 
 module c_cactus(
+  input wire clk,
   input wire [9:0] abs_x,
   input wire [9:0] abs_y,
   output wire draw_cactus,
