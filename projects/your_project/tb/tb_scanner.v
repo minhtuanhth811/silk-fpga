@@ -41,7 +41,7 @@ module tb_scanner;
         $finish;
     end
 // bước 5: đặt print giám sát
-    always @(posedgve clk) begin
+    always @(posedge clk) begin
         if(abs_x == 0 && abs_y > 0 && abs_y < 5) begin
             $display("Time: %0t ns | Quet xong hang ngang. abs_y dang o dong: %d", $time, abs_y);
         end
