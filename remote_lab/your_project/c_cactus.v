@@ -57,7 +57,7 @@ module c_cactus(
     .pixel(cac_pixel_on)
   );
                      
-  wire draw_cactus = (pix_x >= cac_x) && (pix_x < cac_x + CAC_W) &&
+  assign draw_cactus = (pix_x >= cac_x) && (pix_x < cac_x + CAC_W) &&
                      (pix_y >= cac_y) && (pix_y < cac_y + CAC_H) &&
                      cac_pixel_on;
                      
