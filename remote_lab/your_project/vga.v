@@ -14,6 +14,8 @@ module top_module(
 );
   reg [9:0] pix_x;
   reg [9:0] pix_y;
+  reg draw_dino;
+  reg draw_cactus;
   reg [5:0] frame_count = 0;
   
   scanner scanner_inst(
@@ -28,16 +30,18 @@ module top_module(
   
   // tao vat the
   c_dino dino_inst(
+    .clk(clk),
     .abs_x(pix_x),
     .abs_y(pix_y),
     .rst_n(reset_n),
     .game_over(game_over),
     .draw_dino(draw_dino),
-    .command(jumplatch),
+    .command(jump_latch),
     .state(jumping)
   );
   
   c_cactus cactus_inst(
+    .clk(clk),
     .abs_x(pix_x),
     .abs_y(pix_y),
     .rst_n(reset_n),
