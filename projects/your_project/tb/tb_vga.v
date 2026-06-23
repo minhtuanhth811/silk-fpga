@@ -46,6 +46,11 @@ module tb_vga;
         #3
         rst_n = 1;
 
+        force top_inst.cactus_inst.cac_x == 200;
+        #4;
+        release top_inst.cactus_inst.cac_x;
+
+
         wait(top_inst.cactus_inst.cac_x < 150);
 
         $display("Time: %0t ms | Lan 1: Xuong rong den gan, BAM NHAY!", $time);
@@ -57,6 +62,10 @@ module tb_vga;
 
         wait(top_inst.cactus_inst.cac_x > 600);
         $display("Time: %0t ms | Lan 2: Xuong rong da quay nguoc lai", $time);
+        
+        force top_inst.cactus_inst.cac_x == 200;
+        #4;
+        release top_inst.cactus_inst.cac_x;
 
         wait(top_inst.game_over == 1);
         $display("Time: %0t ms | GAME OVER", $time);
