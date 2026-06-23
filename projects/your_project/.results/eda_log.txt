@@ -7,13 +7,6 @@
 === 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
 === 3/4: Đang vẽ Schematic và FSM ===
 === 4/4: Đang mô phỏng và tạo sóng ===
-tb/tb_vga.v:32: error: Enable of unknown task ``dumpfile''.
-tb/tb_vga.v:33: error: Enable of unknown task ``dumpvars''.
-tb/tb_vga.v:34: error: Enable of unknown task ``dumpvars''.
-tb/tb_vga.v:35: error: Enable of unknown task ``dumpvars''.
-tb/tb_vga.v:36: error: Enable of unknown task ``dumpvars''.
-tb/tb_vga.v:37: error: Enable of unknown task ``dumpvars''.
-tb/tb_vga.v:38: error: Enable of unknown task ``dumpvars''.
-tb/tb_vga.v:39: error: Enable of unknown task ``dumpvars''.
-8 error(s) during elaboration.
-❌ LỖI: Biên dịch Icarus Verilog thất bại!
+VCD info: dumpfile tb_vga.vhd opened for output.
+=== Game start ===
+❌ LỖI: Mô phỏng bị treo (Timeout > 15s). Cẩn thận vòng lặp vô hạn!
