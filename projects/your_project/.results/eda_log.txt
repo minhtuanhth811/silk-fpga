@@ -7,6 +7,8 @@
 === 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
 === 3/4: Đang vẽ Schematic và FSM ===
 === 4/4: Đang mô phỏng và tạo sóng ===
-VCD info: dumpfile tb_vga.vcd opened for output.
-=== Game start ===
-❌ LỖI: Mô phỏng bị treo (Timeout > 15s). Cẩn thận vòng lặp vô hạn!
+tb/tb_vga.v:49: syntax error
+tb/tb_vga.v:49: error: Malformed statement
+tb/tb_vga.v:66: syntax error
+tb/tb_vga.v:66: error: Malformed statement
+❌ LỖI: Biên dịch Icarus Verilog thất bại!
