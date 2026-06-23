@@ -32,7 +32,7 @@ module tb_scanner;
 
 // bước 4: tạo kịch bản test
     initial begin
-        $dumpfile("scanner.vcd");
+        $dumpfile("sim/scanner.vcd");
         $dumpvars(0, tb_scanner);
 
         clk = 0;
@@ -53,5 +53,5 @@ module tb_scanner;
             $display("Time: %0t ns | Quet xong hang ngang. abs_y dang o dong: %d", $time, abs_y);
         end
     end
-    
+
 endmodule
