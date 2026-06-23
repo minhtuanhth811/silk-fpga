@@ -1,14 +1,15 @@
 `timescale  1ms / 100us
+
 module tb_vga;
-    input reg       clk;
-    output wire      hsync;
-    output wire      vsync;
-    output wire      video_active;
-    output wire [1:0] r;
-    output wire [1:0] g;
-    output wire [1:0] b;
-    input reg       rst_n;
-    input reg [7:0] SW;
+    reg       clk;
+    wire      hsync;
+    wire      vsync;
+    wire      video_active;
+    wire [1:0] r;
+    wire [1:0] g;
+    wire [1:0] b;
+    reg       rst_n;
+    reg [7:0] SW;
 
 
     top_module top_inst(
@@ -55,7 +56,7 @@ module tb_vga;
 
         wait(top_inst.game_over == 1);
         $display("Time: %0t ms | GAME OVER", $time);
-        $500
+        #500
 
         $display("=== HOAN TAT MO PHONG ===");
         $finish;
