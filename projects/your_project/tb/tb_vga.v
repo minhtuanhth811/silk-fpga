@@ -38,9 +38,12 @@ module tb_vga;
         $display("suicide_test - START");
         $display("=================================================");
 
+        #14000000;
+        $display("Time: %0t ns | Alive...", $time);
+
         while (1) begin
             // Bước nhảy 10.000.000 ns (tương đương 10 mili-giây Silicon)
-            #1000000; 
+            #100000; 
             
             // Nhổ log ra rạp báo cáo sự sống
             $display("Time: %0t ns | Alive...", $time);
