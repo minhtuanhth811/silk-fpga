@@ -68,12 +68,14 @@ module tb_vga;
         $display("Time: %0t ticks | Khung long da dap dat an toan.", $time);
 
         // --- TELEPORT 2: Bốc xương rồng đặt ngược về bên phải ---
-        force top_inst.cactus_inst.cac_x = 610;
+        force top_inst.cactus_inst.cac_x = 1;
         #4;
         release top_inst.cactus_inst.cac_x;
 
         wait(top_inst.cactus_inst.cac_x > 600);
         $display("Time: %0t ns | Lan 2: Xuong rong da quay nguoc lai", $time);
+        
+        #20;
 
         force top_inst.cactus_inst.cac_x = 102;
         #4;
