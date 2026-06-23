@@ -7,6 +7,6 @@
 === 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
 === 3/4: Đang vẽ Schematic và FSM ===
 === 4/4: Đang mô phỏng và tạo sóng ===
-VCD info: dumpfile tb_vga.vhd opened for output.
+VCD info: dumpfile tb_vga.vcd opened for output.
 === Game start ===
 ❌ LỖI: Mô phỏng bị treo (Timeout > 15s). Cẩn thận vòng lặp vô hạn!
