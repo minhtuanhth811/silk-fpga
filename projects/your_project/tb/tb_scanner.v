@@ -53,5 +53,4 @@ module tb_scanner;
             $display("Time: %0t ns | Quet xong hang ngang. abs_y dang o dong: %d", $time, abs_y);
         end
     end
-
 endmodule
