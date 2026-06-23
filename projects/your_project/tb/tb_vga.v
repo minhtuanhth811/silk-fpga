@@ -60,7 +60,7 @@ module tb_vga;
         $display("Time: %0t ms | Lan 1: Xuong rong den gan, BAM NHAY!", $time);
         SW[0] = 1;
 
-        #500000;
+        #50000;
 
         SW[0] = 0;
 
