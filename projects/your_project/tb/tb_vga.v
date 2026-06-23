@@ -43,8 +43,12 @@ module tb_vga;
         SW = 8'b0;
         $display("=== Game start ===");
 
-        #3
+        #3;
         rst_n = 1;
+        SW[0] = 1;
+
+        #10;
+        SW[0] = 0;
 
         force top_inst.cactus_inst.cac_x = 200;
         #4;
