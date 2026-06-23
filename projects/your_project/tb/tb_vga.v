@@ -57,7 +57,7 @@ module tb_vga;
 
         wait(top_inst.cactus_inst.cac_x < 150);
 
-        $display("Time: %0t ms | Lan 1: Xuong rong den gan, BAM NHAY!", $time);
+        $display("Time: %0t ns | Lan 1: Xuong rong den gan, BAM NHAY!", $time);
         SW[0] = 1;
 
         #50000;
@@ -73,9 +73,9 @@ module tb_vga;
         release top_inst.cactus_inst.cac_x;
 
         wait(top_inst.cactus_inst.cac_x > 600);
-        $display("Time: %0t ms | Lan 2: Xuong rong da quay nguoc lai", $time);
+        $display("Time: %0t ns | Lan 2: Xuong rong da quay nguoc lai", $time);
 
-        force top_inst.cactus_inst.cac_x = 151;
+        force top_inst.cactus_inst.cac_x = 101;
         #4;
         release top_inst.cactus_inst.cac_x;
 
