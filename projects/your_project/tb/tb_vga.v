@@ -29,14 +29,14 @@ module tb_vga;
     initial
     begin
 
-        dumpfile("tb_vga.vhd");
-        dumpvars(0, top_inst.game_over);
-        dumpvars(0, top_inst.reset_n);
-        dumpvars(0, top_inst.edge_detector);
-        dumpvars(0, top_inst.jump_latch);
-        dumpvars(0, top_inst.collision_latched);
-        dumpvars(0, top_inst.frame_tick);
-        dumpvars(0, top_inst.jumping);
+        $dumpfile("tb_vga.vhd");
+        $dumpvars(0, top_inst.game_over);
+        $dumpvars(0, top_inst.reset_n);
+        $dumpvars(0, top_inst.edge_detector);
+        $dumpvars(0, top_inst.jump_latch);
+        $dumpvars(0, top_inst.collision_latched);
+        $dumpvars(0, top_inst.frame_tick);
+        $dumpvars(0, top_inst.jumping);
 
         clk = 0;
         rst_n = 1;
