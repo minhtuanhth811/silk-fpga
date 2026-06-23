@@ -29,7 +29,7 @@ module tb_vga;
     initial
     begin
 
-        $dumpfile("tb_vga.vhd");
+        $dumpfile("tb_vga.vcd");
         $dumpvars(0, top_inst.game_over);
         $dumpvars(0, top_inst.reset_n);
         $dumpvars(0, top_inst.edge_detector);
@@ -39,9 +39,12 @@ module tb_vga;
         $dumpvars(0, top_inst.jumping);
 
         clk = 0;
-        rst_n = 1;
+        rst_n = 0;
         SW = 8'b0;
         $display("=== Game start ===");
+
+        #3
+        rst_n = 1;
 
         wait(top_inst.cactus_inst.cac_x < 150);
 
