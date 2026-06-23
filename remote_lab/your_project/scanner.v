@@ -45,4 +45,5 @@
   
     assign display_on = (abs_x < H_DISPLAY) && (abs_y < V_DISPLAY);
   endmodule
+  
 `endif
