@@ -32,7 +32,7 @@ module tb_scanner;
 
 // bước 4: tạo kịch bản test
     initial begin
-        $dumpfile("sim/scanner.vcd");
+        $dumpfile("scanner.vcd");
         $dumpvars(0, tb_scanner);
 
         clk = 0;
