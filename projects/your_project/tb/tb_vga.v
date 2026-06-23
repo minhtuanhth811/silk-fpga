@@ -1,4 +1,4 @@
-`timescale  1ms / 100us
+`timescale  10ns / 1ns
 
 module tb_vga;
     reg       clk;
@@ -24,7 +24,7 @@ module tb_vga;
         .SW(SW)
     ); 
     
-    always #20 clk = ~clk;
+    always #2 clk = ~clk;
 
     initial
     begin
@@ -40,6 +40,7 @@ module tb_vga;
 
         clk = 0;
         rst_n = 1;
+        SW = 8'b0;
         $display("=== Game start ===");
 
         wait(top_inst.cactus_inst.cac_x < 150);
@@ -47,7 +48,7 @@ module tb_vga;
         $display("Time: %0t ms | Lan 1: Xuong rong den gan, BAM NHAY!", $time);
         SW[0] = 1;
 
-        #10
+        #5000000
 
         SW[0] = 0;
 
@@ -56,7 +57,7 @@ module tb_vga;
 
         wait(top_inst.game_over == 1);
         $display("Time: %0t ms | GAME OVER", $time);
-        #500
+        #100000
 
         $display("=== HOAN TAT MO PHONG ===");
         $finish;
