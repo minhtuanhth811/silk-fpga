@@ -10,6 +10,6 @@
 VCD info: dumpfile tb_vga.vcd opened for output.
 === Game start ===
 Time: 16800060 ms | Lan 1: Xuong rong den gan, BAM NHAY!
-Time: 21800060 ticks | Khung long da dap dat an toan.
-Time: 21800100 ms | Lan 2: Xuong rong da quay nguoc lai
+Time: 17300060 ticks | Khung long da dap dat an toan.
+Time: 17300100 ms | Lan 2: Xuong rong da quay nguoc lai
 ❌ LỖI: Mô phỏng bị treo (Timeout > 15s). Cẩn thận vòng lặp vô hạn!
