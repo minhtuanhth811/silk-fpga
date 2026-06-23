@@ -7,9 +7,8 @@
 === 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
 === 3/4: Đang vẽ Schematic và FSM ===
 === 4/4: Đang mô phỏng và tạo sóng ===
-VCD info: dumpfile tb_vga.vcd opened for output.
-=== Game start ===
-Time: 16800060 ns | Lan 1: Xuong rong den gan, BAM NHAY!
-Time: 16850060 ticks | Khung long da dap dat an toan.
-Time: 33600060 ns | Lan 2: Xuong rong da quay nguoc lai
+VCD info: dumpfile suicide_test.vcd opened for output.
+=================================================
+suicide_test - START
+=================================================
 ❌ LỖI: Mô phỏng bị treo (Timeout > 15s). Cẩn thận vòng lặp vô hạn!
