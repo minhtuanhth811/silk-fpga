@@ -26,66 +26,84 @@ module tb_vga;
     
     always #2 clk = ~clk;
 
-    initial
-    begin
-
-        $dumpfile("tb_vga.vcd");
-        $dumpvars(0, top_inst.game_over);
-        $dumpvars(0, top_inst.reset_n);
-        $dumpvars(0, top_inst.edge_detector);
-        $dumpvars(0, top_inst.jump_latch);
-        $dumpvars(0, top_inst.collision_latched);
-        $dumpvars(0, top_inst.frame_tick);
-        $dumpvars(0, top_inst.jumping);
+    initial begin
+        // Ghi log ra file để lát xem nó ghi được mấy MB thì nổ ổ cứng
+        $dumpfile("suicide_test.vcd"); 
+        $dumpvars(0, tb_vga);
 
         clk = 0;
-        rst_n = 0;
-        SW = 8'b0;
-        $display("=== Game start ===");
-
-        #3;
         rst_n = 1;
-        SW[0] = 1;
 
-        #10;
-        SW[0] = 0;
+        $display("=================================================");
+        $display("suicide_test - START");
+        $display("=================================================");
 
-        force top_inst.cactus_inst.cac_x = 151;
-        #4;
-        release top_inst.cactus_inst.cac_x;
+        while (1) begin
+            // Bước nhảy 10.000.000 ns (tương đương 10 mili-giây Silicon)
+            #100000000; 
+            
+            // Nhổ log ra rạp báo cáo sự sống
+            $display("Time: %0t ns | Alive...", $time);
+        end
 
-
-        wait(top_inst.cactus_inst.cac_x < 150);
-
-        $display("Time: %0t ns | Lan 1: Xuong rong den gan, BAM NHAY!", $time);
-        SW[0] = 1;
-
-        #5000;
-
-        SW[0] = 0;
-
-        wait(top_inst.jumping == 0);
-        $display("Time: %0t ticks | Khung long da dap dat an toan.", $time);
-
-        // --- TELEPORT 2: Bốc xương rồng đặt ngược về bên phải ---
-        force top_inst.cactus_inst.cac_x = 1;
-        #4;
-        release top_inst.cactus_inst.cac_x;
-
-        wait(top_inst.cactus_inst.cac_x > 600);
-        $display("Time: %0t ns | Lan 2: Xuong rong da quay nguoc lai", $time);
-
-        #20;
-
-        force top_inst.cactus_inst.cac_x = 100;
-        #4;
-        release top_inst.cactus_inst.cac_x;
-
-        wait(top_inst.game_over == 1);
-        $display("Time: %0t ms | GAME OVER", $time);
-        #100;
-
-        $display("=== HOAN TAT MO PHONG ===");
+        // Dòng code mang tính nhạo báng: Vĩnh viễn không bao giờ chạy tới
+        $display("Dead");
         $finish;
     end
+
+    // initial
+    // begin
+
+    //     $dumpfile("tb_vga.vcd");
+    //     $dumpvars(0, top_inst.game_over);
+    //     $dumpvars(0, top_inst.reset_n);
+    //     $dumpvars(0, top_inst.edge_detector);
+    //     $dumpvars(0, top_inst.jump_latch);
+    //     $dumpvars(0, top_inst.collision_latched);
+    //     $dumpvars(0, top_inst.frame_tick);
+    //     $dumpvars(0, top_inst.jumping);
+
+    //     clk = 0;
+    //     rst_n = 0;
+    //     SW = 8'b0;
+    //     $display("=== Game start ===");
+
+    //     #3;
+    //     rst_n = 1;
+    //     SW[0] = 1;
+
+    //     #10;
+    //     SW[0] = 0;
+
+    //     force top_inst.cactus_inst.cac_x = 151;
+    //     #4;
+    //     release top_inst.cactus_inst.cac_x;
+
+
+    //     wait(top_inst.cactus_inst.cac_x < 150);
+
+    //     $display("Time: %0t ns | Lan 1: Xuong rong den gan, BAM NHAY!", $time);
+    //     SW[0] = 1;
+
+    //     #5000;
+
+    //     SW[0] = 0;
+
+    //     wait(top_inst.jumping == 0);
+    //     $display("Time: %0t ticks | Khung long da dap dat an toan.", $time);
+
+    //     // --- TELEPORT 2: Bốc xương rồng đặt ngược về bên phải ---
+    //     force top_inst.cactus_inst.cac_x = 100;
+    //     #4;
+    //     release top_inst.cactus_inst.cac_x;
+
+
+
+    //     wait(top_inst.game_over == 1);
+    //     $display("Time: %0t ms | GAME OVER", $time);
+    //     #100;
+
+    //     $display("=== HOAN TAT MO PHONG ===");
+    //     $finish;
+    // end
 endmodule
