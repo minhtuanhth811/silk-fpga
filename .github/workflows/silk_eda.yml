@@ -21,7 +21,7 @@ jobs:
       - name: Tải mã nguồn
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2 # Lấy đủ commit gần nhất để tính toán sai biệt (git diff)
+          fetch-depth: 2
 
       - name: Cập nhật môi trường SILK EDA
         run: docker pull huyatieo/silk-eda:latest
@@ -30,7 +30,6 @@ jobs:
         id: locate_project
         run: |
           echo "=== ĐANG XÁC ĐỊNH VÙNG THAY ĐỔI ==="
-          # Tìm tệp bất kỳ trong thư mục projects vừa bị chỉnh sửa ở commit mới nhất
           CHANGED_FILE=$(git diff --name-only HEAD~1 HEAD | grep "projects/" | head -n 1)
           
           if [ -z "$CHANGED_FILE" ]; then
@@ -38,10 +37,8 @@ jobs:
             exit 1
           fi
           
-          # Trích xuất ra đường dẫn gốc của bài Lab (VD: projects/lab01_multiplier)
           TARGET_DIR=$(echo "$CHANGED_FILE" | cut -d'/' -f1-2)
           
-          # Lưu đường dẫn vào môi trường của GitHub Runner
           echo "TARGET_PATH=$TARGET_DIR" >> $GITHUB_ENV
           echo "✅ Xác định được dự án cần thực thi: $TARGET_DIR"
 
@@ -51,17 +48,17 @@ jobs:
           
           set +e 
           
-          # Mount động thư mục bài Lab cụ thể vào Docker
           docker run --rm -v "${{ github.workspace }}/${{ env.TARGET_PATH }}:/workspace" huyatieo/silk-eda:latest > ${{ env.TARGET_PATH }}/eda_log.txt 2>&1
           
           EXIT_CODE=$?
           cat ${{ env.TARGET_PATH }}/eda_log.txt
           
-          # Dọn dẹp và phân loại sản phẩm đầu ra của đúng bài Lab đó
           cd ${{ env.TARGET_PATH }}
           mkdir -p .results
           rm -f .results/*.svg .results/*.md .results/*.txt .results/*.vcd 2>/dev/null || true
-          mv *.svg *.md sim/*.vcd eda_log.txt resource_stat.txt .results/ 2>/dev/null || true
+          
+          # Đã loại bỏ *.vcd khỏi lệnh mv để nó yên vị trong thư mục sim/
+          mv *.svg *.md eda_log.txt resource_stat.txt .results/ 2>/dev/null || true
           
           exit $EXIT_CODE
 
@@ -70,14 +67,14 @@ jobs:
         if: always()
         with:
           commit_message: "Tự động tạo báo cáo EDA cho mục ${{ env.TARGET_PATH }}"
-          file_pattern: '${{ env.TARGET_PATH }}/.results/*'
+          # Mở rộng vùng quét bắt trọn gói thư mục sim/
+          file_pattern: '${{ env.TARGET_PATH }}/.results/* ${{ env.TARGET_PATH }}/sim/*'
 
       - name: Tạo Báo cáo Trực quan
         if: always()
         run: |
           REPO_URL="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}"
           
-          # Di chuyển vào đúng thư mục bài Lab có thay đổi để đọc config.txt sinh Summary
           cd ${{ env.TARGET_PATH }}
           
           echo "# 📊 Báo Cáo Phân Tích SILK EDA - \`${{ env.TARGET_PATH }}\`" >> $GITHUB_STEP_SUMMARY
@@ -123,4 +120,5 @@ jobs:
              echo "*(Không phát hiện máy trạng thái - State Machine trong thiết kế này)*" >> $GITHUB_STEP_SUMMARY
           fi
           
-          echo "> 💡 **Mẹo:** Tải file \`.vcd\` trong thư mục \`${{ env.TARGET_PATH }}/.results\` để xem sóng mô phỏng." >> $GITHUB_STEP_SUMMARY
+          # Đã cập nhật đường dẫn mẹo trỏ về thư mục sim/
+          echo "> 💡 **Mẹo:** Tải file \`.vcd\` trong thư mục \`${{ env.TARGET_PATH }}/sim\` để xem sóng mô phỏng." >> $GITHUB_STEP_SUMMARY
