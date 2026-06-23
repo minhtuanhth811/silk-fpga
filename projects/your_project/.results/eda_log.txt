@@ -8,9 +8,14 @@
 === 3/4: Đang vẽ Schematic và FSM ===
 === 4/4: Đang mô phỏng và tạo sóng ===
 VCD info: dumpfile scanner.vcd opened for output.
-Time: 32100000 ns | Quet xong hang ngang. abs_y dang o dong:    1
-Time: 64100000 ns | Quet xong hang ngang. abs_y dang o dong:    2
-Time: 96100000 ns | Quet xong hang ngang. abs_y dang o dong:    3
-tb/tb_scanner.v:46: $finish called at 100100000 (1ps)
+Time: 32100 ns | Quet xong hang ngang. abs_y dang o dong:    1
+Time: 64100 ns | Quet xong hang ngang. abs_y dang o dong:    2
+Time: 96100 ns | Quet xong hang ngang. abs_y dang o dong:    3
+Time: 128100 ns | Quet xong hang ngang. abs_y dang o dong:    4
+Time: 16832100 ns | Quet xong hang ngang. abs_y dang o dong:    1
+Time: 16864100 ns | Quet xong hang ngang. abs_y dang o dong:    2
+Time: 16896100 ns | Quet xong hang ngang. abs_y dang o dong:    3
+Time: 16928100 ns | Quet xong hang ngang. abs_y dang o dong:    4
+tb/tb_scanner.v:46: $finish called at 17000100 (1ns)
 ✅ Đã tạo Waveform (.vcd) trong thư mục sim/
 🎉 HOÀN TẤT PIPELINE!
