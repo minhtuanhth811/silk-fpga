@@ -37,10 +37,10 @@ module tb_vga;
         //doi 100_000_000 periods = 1ms, chet ngắc không print Alive..
         //doi 1_000_000 period  = 10ms, được 140ms, print alive 14 lan
         //doi 140ms, rồi doi 100_000 period(1ms) được 193ms(53ms) print alive 52 lần
-        #18500000;
+        #15000000;
 
         while (1) begin
-            #10000
+            #100000
             // Nhổ log ra rạp báo cáo sự sống
             $display("Time: %0t ns | Alive...", $time);
         end
