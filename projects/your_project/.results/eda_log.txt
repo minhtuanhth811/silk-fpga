@@ -8,4 +8,6 @@
 === 3/4: Đang vẽ Schematic và FSM ===
 === 4/4: Đang mô phỏng và tạo sóng ===
 VCD info: dumpfile suicide_test.vcd opened for output.
+Time: 151000000 ns | Alive...
+Time: 152000000 ns | Alive...
 ❌ LỖI: Mô phỏng bị treo (Timeout > 15s). Cẩn thận vòng lặp vô hạn!
