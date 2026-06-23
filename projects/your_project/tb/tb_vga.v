@@ -75,7 +75,7 @@ module tb_vga;
         wait(top_inst.cactus_inst.cac_x > 600);
         $display("Time: %0t ns | Lan 2: Xuong rong da quay nguoc lai", $time);
 
-        force top_inst.cactus_inst.cac_x = 101;
+        force top_inst.cactus_inst.cac_x = 102;
         #4;
         release top_inst.cactus_inst.cac_x;
 
