@@ -1,5 +1,5 @@
 //bước 1: dựng file, bao dây dẫn
-`timescale 1ns / 1ps // đơn vị gốc 1ns, độ phân giải 1ps
+`timescale 1ns / 1ns // đơn vị gốc 1ns, độ phân giải 1ps
 
 module tb_scanner;
     // 1. dây input (phải dùng reg)
@@ -41,7 +41,7 @@ module tb_scanner;
         #100
         reset = 0;
 
-        #100000;
+        #17000000;
 
         $finish;
     end
