@@ -40,7 +40,7 @@ module tb_vga;
 
         while (1) begin
             // Bước nhảy 10.000.000 ns (tương đương 10 mili-giây Silicon)
-            #100000000; 
+            #1000000; 
             
             // Nhổ log ra rạp báo cáo sự sống
             $display("Time: %0t ns | Alive...", $time);
