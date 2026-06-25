@@ -49,6 +49,7 @@ module tb_dino;
         command = 0;
         abs_x = 0;
         abs_y = 0;
+        state = 0;
         
         #4; 
         rst_n = 1;
@@ -68,7 +69,7 @@ module tb_dino;
         $display("Time %0t ns | === HOAN THANH TEST SPRITE ===", $time);
 
         #4;
-        prev_y = dino_i.dino_y_reg;
+        prev_y = dino_i.DINO_START_Y;
         command = 1;
         repeat(5) pump_frametick();
         command = 0;
@@ -78,7 +79,7 @@ module tb_dino;
         if (state == 0) $display("Time %0t ns | === TEST STATE FAIL ===", $time);
         else $display("Time %0t ns | === TEST STATE FAIL ===", $time);
 
-        command = 0;
+
         repeat(30) pump_frametick();
         if (dino_i.dino_y_reg != dino_i.DINO_START_Y) $display("Time %0t ns | === TEST FALL FAIL===", $time);
         else $display("Time %0t ns | === TEST FALL OK===", $time);
