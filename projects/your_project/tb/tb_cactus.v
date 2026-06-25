@@ -8,6 +8,7 @@ module tb_cactus;
     reg rst_n;
     wire draw_cactus;
     reg [9:0] prev_x;
+    integer x,y;
 
     c_cactus cactus_inst(
         .clk(clk),
@@ -19,8 +20,7 @@ module tb_cactus;
     );
     
     always #2 clk = ~clk;
-    initial begin
-        integer x,y;
+    initial begin : VONG_LAP_X_QUANG
         $dumpfile("tb_cactus.vcd");
         $dumpvars(0, cactus_inst.cac_x);
         $dumpvars(0, cactus_inst.cac_y);
