@@ -20,6 +20,7 @@ module tb_cactus;
     
     always #2 clk = ~clk;
     initial begin
+        integer x,y;
         $dumpfile("tb_cactus.vcd");
         $dumpvars(0, cactus_inst.cac_x);
         $dumpvars(0, cactus_inst.cac_y);
@@ -34,13 +35,13 @@ module tb_cactus;
         game_over = 0;
         rst_n = 0;
 
-        #10
+        #10;
         
         rst_n = 1;
 
 
         $display("Time %0t ns | === START ===", $time);
-        integer x,y;
+        
         for(y = 0; y < 40; y = y + 1) begin
             abs_y = y + cactus_inst.cac_y;
             for (x = 0; x < 40; x = x + 1) begin
