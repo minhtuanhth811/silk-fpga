@@ -67,7 +67,7 @@ module tb_dino;
         end
         $display("Time %0t ns | === HOAN THANH TEST SPRITE ===", $time);
 
-        #4;
+        #6;
         prev_y = dino_i.DINO_START_Y;
         command = 1;
         repeat(5) pump_frametick();
