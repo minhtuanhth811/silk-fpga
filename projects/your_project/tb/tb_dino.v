@@ -22,7 +22,7 @@ module tb_dino;
         .state(state),
         .command(command)
     );
-    
+
     always #2 clk = ~clk;
     
     task pump_frametick;
@@ -55,10 +55,10 @@ module tb_dino;
         $display("Time %0t ns | === START ===", $time);
 
         #4;
-        for(x = 0; x < 40; x = x + 1) begin
-            abs_x = dino_i.DINO_X + x;
+        for(y = 0; y < 40; y = y + 1) begin
+            abs_y = dino_i.DINO_START_Y + y;
             for(y = 0; y < 40; y = y + 1) begin
-                abs_y = dino_i.DINO_START_Y + y;
+                abs_x = dino_i.DINO_X + x;
                 @(posedge clk);
                 if(draw_dino) $write("█");
                 else $write(" ");
@@ -71,6 +71,8 @@ module tb_dino;
         prev_y = dino_i.dino_y_reg;
         command = 1;
         pump_frametick();
+        command = 0;
+        repeat(5) pump_frametick();
         if (dino_i.dino_y_reg == prev_y) $display("Time %0t ns | === TEST JUMP FAIL===", $time);
         else $display("Time %0t ns | === TEST JUMP OK===", $time);
         if (state == 0) $display("Time %0t ns | === TEST STATE FAIL ===", $time);
