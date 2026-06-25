@@ -7,6 +7,5 @@
 === 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
 === 3/4: Đang vẽ Schematic và FSM ===
 === 4/4: Đang mô phỏng và tạo sóng ===
-tb/tb_cactus.v:43: syntax error
-tb/tb_cactus.v:43: error: Malformed statement
+tb/tb_cactus.v:1: error: Variable declaration in unnamed block requires SystemVerilog.
 ❌ LỖI: Biên dịch Icarus Verilog thất bại!
