@@ -98,6 +98,7 @@ module tb_cactus;
             repeat(2) @(posedge clk);
         end
         $display("Time %0t ns | === HOAN THANH TEST GAMEOVER ===", $time);
+        $finish;
     end
 
 endmodule
