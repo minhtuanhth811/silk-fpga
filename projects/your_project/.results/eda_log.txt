@@ -10,15 +10,54 @@
 VCD info: dumpfile tb_dino.vcd opened for output.
 VCD warning: skipping signal tb_dino.dino_i.dino_y_reg, it was previously included.
 Time 4 ns | === START ===
-                                        
-Time 166 ns | === HOAN THANH TEST SPRITE ===
-Time 214 ns | === TEST JUMP FAIL===
-Time 214 ns | === TEST STATE FAIL ===
-Time 454 ns | === TEST FALL OK===
-Time 454 ns | === TEST STATE OK ===
-Time 474 ns | === TEST RESET OK===
-Time 510 ns | === TEST GAMEOVER OK ===
-Time 510 ns | === HOAN THANH TEST ===
-tb/tb_dino.v:112: $finish called at 510 (1ns)
+                    ██████████████████  
+                    ██████████████████  
+                  ████  ████████████████
+                  ████  ████████████████
+                  ██████████████████████
+                  ██████████████████████
+                  ██████████████████████
+                  ██████████████████████
+                  ██████████████████████
+                  ██████████████████████
+                  ████████████          
+                  ████████████          
+                  ██████████████████    
+                  ██████████████████    
+                  ██████████            
+                  ██████████            
+██              ████████████            
+██              ████████████            
+██            ██████████████████        
+██            ██████████████████        
+████        ████████████████  ██        
+████        ████████████████  ██        
+██████    ██████████████████            
+██████    ██████████████████            
+████████████████████████████            
+████████████████████████████            
+  ████████████████████████              
+  ████████████████████████              
+    ████████████████████                
+    ████████████████████                
+      ████████████████                  
+      ████████████████                  
+          ██████  ████                  
+          ██████  ████                  
+          ████      ██                  
+          ████      ██                  
+          ██        ██                  
+          ██        ██                  
+          ████      ████                
+          ████      ████                
+Time 6406 ns | === HOAN THANH TEST SPRITE ===
+Time 6454 ns | === TEST JUMP FAIL===
+Time 6454 ns | === TEST STATE FAIL ===
+Time 6694 ns | === TEST FALL OK===
+Time 6694 ns | === TEST STATE OK ===
+Time 6714 ns | === TEST RESET OK===
+Time 6750 ns | === TEST GAMEOVER OK ===
+Time 6750 ns | === HOAN THANH TEST ===
+tb/tb_dino.v:112: $finish called at 6750 (10ns)
 ✅ Đã tạo Waveform (.vcd) trong thư mục sim/
 🎉 HOÀN TẤT PIPELINE!

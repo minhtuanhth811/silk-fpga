@@ -1,11 +1,11 @@
 $date
-	Thu Jun 25 12:09:31 2026
+	Thu Jun 25 12:12:52 2026
 $end
 $version
 	Icarus Verilog
 $end
 $timescale
-	1ns
+	10ns
 $end
 $scope module tb_dino $end
 $var reg 1 ! rst_n $end
@@ -40,21 +40,21 @@ $end
 0#
 #4
 1!
-#170
+#6410
 1$
-#174
+#6414
 0$
-#458
+#6698
 1$
-#462
+#6702
 0!
 0$
-#470
+#6710
 1!
-#478
+#6718
 1$
-#482
+#6722
 0$
-#490
+#6730
 1"
-#510
+#6750
