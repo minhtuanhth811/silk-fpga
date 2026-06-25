@@ -90,11 +90,12 @@ module tb_cactus;
 
         game_over = 1;
         while (cactus_inst.cac_x - prev_x != 0) begin
+            prev_x = cactus_inst.cac_x;
             force cactus_inst.frame_tick = 1;
             @(posedge clk);
             force cactus_inst.frame_tick = 0;
             game_over = 0;
-            prev_x = cactus_inst.cac_x;
+            
             repeat(2) @(posedge clk);
         end
         $display("Time %0t ns | === HOAN THANH TEST GAMEOVER ===", $time);
