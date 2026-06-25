@@ -7,12 +7,57 @@
 === 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
 === 3/4: Đang vẽ Schematic và FSM ===
 === 4/4: Đang mô phỏng và tạo sóng ===
-tb/tb_dino.v:26: syntax error
-tb/tb_dino.v:15: error: Invalid module instantiation
-tb/tb_dino.v:53: syntax error
-tb/tb_dino.v:53: error: Malformed statement
-tb/tb_dino.v:80: syntax error
-tb/tb_dino.v:80: error: Malformed statement
-tb/tb_dino.v:93: syntax error
-tb/tb_dino.v:93: error: Malformed statement
-❌ LỖI: Biên dịch Icarus Verilog thất bại!
+VCD info: dumpfile tb_dino.vcd opened for output.
+VCD warning: skipping signal tb_dino.dino_i.dino_y_reg, it was previously included.
+Time 4 ns | === START ===
+                ██████████              
+                ██████████              
+                    ████████            
+                    ████████            
+                      ████████          
+                      ████████          
+                        ████████        
+                        ████████        
+                        ████████        
+                        ████████        
+                      ██████████████████
+                      ██████████████████
+                    ████████████████  ██
+                    ████████████████  ██
+                  ████████████████      
+                  ████████████████      
+                ████████████████        
+                ████████████████        
+  ████████████████████████████████      
+  ████████████████████████████████      
+████████████████████████████████████████
+████████████████████████████████████████
+██  ██████████████████████████        ██
+██  ██████████████████████████        ██
+████████████████████████████            
+████████████████████████████            
+██████████████████████████              
+██████████████████████████              
+██████████████    ██                    
+██████████████    ██                    
+██████████  ██    ████                  
+██████████  ██    ████                  
+██████████  ██                          
+██████████  ██                          
+██████████  ██                          
+██████████  ██                          
+██████████                              
+██████████                              
+  ████████                              
+  ████████                              
+Time 6406 ns | === HOAN THANH TEST SPRITE ===
+Time 6414 ns | === TEST JUMP FAIL===
+Time 6414 ns | === TEST STATE FAIL ===
+Time 6654 ns | === TEST FALL OK===
+Time 6654 ns | === TEST STATE OK ===
+Time 6674 ns | === TEST RESET OK===
+Time 6710 ns | === TEST GAMEOVER OK ===
+Time 6710 ns | === HOAN THANH TEST ===
+tb/tb_dino.v:110: $finish called at 6710 (1ns)
+✅ Đã tạo Waveform (.vcd) trong thư mục sim/
+🎉 HOÀN TẤT PIPELINE!

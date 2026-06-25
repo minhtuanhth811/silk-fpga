@@ -1,0 +1,60 @@
+$date
+	Thu Jun 25 12:05:24 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module tb_dino $end
+$var reg 1 ! rst_n $end
+$upscope $end
+$scope module tb_dino $end
+$var reg 1 " game_over $end
+$upscope $end
+$scope module tb_dino $end
+$var wire 1 # state $end
+$upscope $end
+$scope module tb_dino $end
+$var reg 1 $ command $end
+$upscope $end
+$scope module tb_dino $end
+$scope module dino_i $end
+$var reg 11 % dino_y_reg [10:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b101111100 %
+0$
+x#
+0"
+0!
+$end
+#2
+0#
+#4
+1!
+#6410
+1$
+#6414
+0$
+#6658
+1$
+#6662
+0!
+0$
+#6670
+1!
+#6678
+1$
+#6682
+0$
+#6690
+1"
+#6710
