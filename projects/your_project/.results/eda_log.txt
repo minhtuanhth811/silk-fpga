@@ -51,13 +51,13 @@ Time 4 ns | === START ===
           ████      ████                
           ████      ████                
 Time 6406 ns | === HOAN THANH TEST SPRITE ===
-Time 6490 ns | === TEST JUMP FAIL ===
-Time 6490 ns | === TEST STATE FAIL ===
+Time 6490 ns | === TEST JUMP OK===
+Time 6490 ns | === TEST STATE OK ===
 Time 6730 ns | === TEST FALL OK===
 Time 6730 ns | === TEST STATE OK ===
 Time 6750 ns | === TEST RESET OK===
 Time 6786 ns | === TEST GAMEOVER OK ===
 Time 6786 ns | === HOAN THANH TEST ===
-tb/tb_dino.v:112: $finish called at 6786 (10ns)
+tb/tb_dino.v:114: $finish called at 6786 (10ns)
 ✅ Đã tạo Waveform (.vcd) trong thư mục sim/
 🎉 HOÀN TẤT PIPELINE!
