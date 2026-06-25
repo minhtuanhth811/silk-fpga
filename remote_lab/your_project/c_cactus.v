@@ -1,6 +1,12 @@
 `default_nettype none
 
-module c_cactus(
+module c_cactus #(
+  parameter GROUND_Y = 420; 
+  parameter ZOOM = 2;
+  parameter CAC_SIZE = 20;
+  parameter CAC_START_X = 640; // Xuất phát từ mép phải màn hình
+  parameter CAC_SPEED = 6;     // Tốc độ chạy của xương rồng
+)(
   input wire clk,
   input wire [9:0] abs_x,
   input wire [9:0] abs_y,
@@ -11,13 +17,11 @@ module c_cactus(
 
     
   // --- Cài đặt Kích thước và Tọa độ ---
-  parameter GROUND_Y = 420; 
-  parameter ZOOM = 2;
+  
   // Cài đặt Xương rồng (Cactus)
-  parameter CAC_W = 20 * ZOOM;
-  parameter CAC_H = 20 * ZOOM;
-  parameter CAC_START_X = 640; // Xuất phát từ mép phải màn hình
-  parameter CAC_SPEED = 6;     // Tốc độ chạy của xương rồng
+  parameter CAC_W = CAC_SIZE * ZOOM;
+  parameter CAC_H = CAC_SIZE * ZOOM;
+  
   wire [9:0] cac_y = GROUND_Y - CAC_H;
   // ==========================================
   // 1. THANH GHI TRẠNG THÁI (STATE REGISTERS)
