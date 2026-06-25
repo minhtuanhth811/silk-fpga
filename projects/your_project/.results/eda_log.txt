@@ -7,5 +7,53 @@
 === 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
 === 3/4: Đang vẽ Schematic và FSM ===
 === 4/4: Đang mô phỏng và tạo sóng ===
-tb/tb_cactus.v:1: error: Variable declaration in unnamed block requires SystemVerilog.
-❌ LỖI: Biên dịch Icarus Verilog thất bại!
+VCD info: dumpfile tb_cactus.vcd opened for output.
+Time 100 ns | === START ===
+            ████                        
+            ████                        
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+  ████    ████████      ██              
+  ████    ████████      ██              
+████████  ████████    ██████            
+████████  ████████    ██████            
+████████  ████████    ██████            
+████████  ████████    ██████            
+████████  ████████    ██████            
+████████  ████████    ██████            
+██████████████████    ██████            
+██████████████████    ██████            
+██████████████████    ██████            
+██████████████████    ██████            
+  ████████████████    ██████            
+  ████████████████    ██████            
+    ██████████████    ██████            
+    ██████████████    ██████            
+          ██████████████████            
+          ██████████████████            
+          ████████████████              
+          ████████████████              
+          ██████████████                
+          ██████████████                
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+
+Time 64060 ns | ==============================
+Time 64060 ns | === HOAN THANH TEST SPRITE ===
+Time 68860 ns | === HOAN THANH TEST CHUYEN DONG ===
+Time 77020 ns | === HOAN THANH TEST QUAY VE ===
+Time 77860 ns | === HOAN THANH TEST RESET ===
+Time 77860 ns | === HOAN THANH TEST GAMEOVER ===
+❌ LỖI: Mô phỏng bị treo (Timeout > 15s). Cẩn thận vòng lặp vô hạn!
