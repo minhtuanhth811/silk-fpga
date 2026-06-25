@@ -56,4 +56,6 @@ Time 68860 ns | === HOAN THANH TEST CHUYEN DONG ===
 Time 77020 ns | === HOAN THANH TEST QUAY VE ===
 Time 77860 ns | === HOAN THANH TEST RESET ===
 Time 77860 ns | === HOAN THANH TEST GAMEOVER ===
-❌ LỖI: Mô phỏng bị treo (Timeout > 15s). Cẩn thận vòng lặp vô hạn!
+tb/tb_cactus.v:101: $finish called at 77860 (1ns)
+✅ Đã tạo Waveform (.vcd) trong thư mục sim/
+🎉 HOÀN TẤT PIPELINE!
