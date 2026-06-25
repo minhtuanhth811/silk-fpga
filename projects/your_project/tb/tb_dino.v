@@ -27,9 +27,11 @@ module tb_dino;
     
     task pump_frametick;
         begin 
-            force dino_i.frame_tick = 1;
+            abs_x = 0;
+            abs_y = 0;
             @(posedge clk);
-            force dino_i.frame_tick = 0;
+            abs_x = 1;
+            abs_y = 1;
             @(posedge clk);
         end
     endtask
