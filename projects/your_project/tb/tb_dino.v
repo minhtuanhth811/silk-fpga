@@ -1,4 +1,4 @@
-`timescale 1ns/1ns
+`timescale 10ns/10ns
 
 module tb_dino;
     reg clk;
@@ -57,7 +57,7 @@ module tb_dino;
         #4;
         for(y = 0; y < 40; y = y + 1) begin
             abs_y = dino_i.DINO_START_Y + y;
-            for(y = 0; y < 40; y = y + 1) begin
+            for(x = 0; x < 40; x = x + 1) begin
                 abs_x = dino_i.DINO_X + x;
                 @(posedge clk);
                 if(draw_dino) $write("█");
