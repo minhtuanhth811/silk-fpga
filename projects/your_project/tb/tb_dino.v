@@ -49,7 +49,6 @@ module tb_dino;
         command = 0;
         abs_x = 0;
         abs_y = 0;
-        state = 0;
         
         #4; 
         rst_n = 1;
@@ -77,7 +76,7 @@ module tb_dino;
         if (dino_i.dino_y_reg == prev_y) $display("Time %0t ns | === TEST JUMP FAIL ===", $time);
         else $display("Time %0t ns | === TEST JUMP OK===", $time);
         if (state == 0) $display("Time %0t ns | === TEST STATE FAIL ===", $time);
-        else $display("Time %0t ns | === TEST STATE FAIL ===", $time);
+        else $display("Time %0t ns | === TEST STATE OK ===", $time);
 
 
         repeat(30) pump_frametick();
