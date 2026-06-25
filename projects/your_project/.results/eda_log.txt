@@ -7,57 +7,7 @@
 === 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
 === 3/4: Đang vẽ Schematic và FSM ===
 === 4/4: Đang mô phỏng và tạo sóng ===
-VCD info: dumpfile tb_dino.vcd opened for output.
-VCD warning: skipping signal tb_dino.dino_i.dino_y_reg, it was previously included.
-Time 4 ns | === START ===
-                    ██████████████████  
-                    ██████████████████  
-                  ████  ████████████████
-                  ████  ████████████████
-                  ██████████████████████
-                  ██████████████████████
-                  ██████████████████████
-                  ██████████████████████
-                  ██████████████████████
-                  ██████████████████████
-                  ████████████          
-                  ████████████          
-                  ██████████████████    
-                  ██████████████████    
-                  ██████████            
-                  ██████████            
-██              ████████████            
-██              ████████████            
-██            ██████████████████        
-██            ██████████████████        
-████        ████████████████  ██        
-████        ████████████████  ██        
-██████    ██████████████████            
-██████    ██████████████████            
-████████████████████████████            
-████████████████████████████            
-  ████████████████████████              
-  ████████████████████████              
-    ████████████████████                
-    ████████████████████                
-      ████████████████                  
-      ████████████████                  
-          ██████  ████                  
-          ██████  ████                  
-          ████      ██                  
-          ████      ██                  
-          ██        ██                  
-          ██        ██                  
-          ████      ████                
-          ████      ████                
-Time 6406 ns | === HOAN THANH TEST SPRITE ===
-Time 6486 ns | === TEST JUMP FAIL ===
-Time 6486 ns | === TEST STATE FAIL ===
-Time 6726 ns | === TEST FALL OK===
-Time 6726 ns | === TEST STATE OK ===
-Time 6746 ns | === TEST RESET OK===
-Time 6782 ns | === TEST GAMEOVER OK ===
-Time 6782 ns | === HOAN THANH TEST ===
-tb/tb_dino.v:112: $finish called at 6782 (10ns)
-✅ Đã tạo Waveform (.vcd) trong thư mục sim/
-🎉 HOÀN TẤT PIPELINE!
+tb/tb_dino.v:52: error: state is not a valid l-value in tb_dino.TEST.
+tb/tb_dino.v:12:      : state is declared here as wire.
+1 error(s) during elaboration.
+❌ LỖI: Biên dịch Icarus Verilog thất bại!
