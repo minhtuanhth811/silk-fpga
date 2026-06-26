@@ -16,7 +16,7 @@ module c_score #(
     input wire count
 
 );
-    wire [3:0] dig0, dig1, dig2, dig3;
+    reg [3:0] dig0, dig1, dig2, dig3;
     always @(posedge clk) begin
         if (~rst_n || (game_over && dig0 == 0 && dig1 == 0)) begin
             // Lưu ý: Chỉ xóa điểm về 0 khi vừa bấm Reset chơi lại (~rst_n)
