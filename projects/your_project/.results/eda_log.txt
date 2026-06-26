@@ -2,60 +2,14 @@
 ✅ Top Module: top_module
 ✅ Testbench: tb_cactus
 === 0/4: Đang kiểm tra lỗi cú pháp và logic (Linting) ===
-✅ Code RTL vượt qua Verilator linting.
-=== 1/4: Đang tạo Module Documentation ===
-=== 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
-=== 3/4: Đang vẽ Schematic và FSM ===
-=== 4/4: Đang mô phỏng và tạo sóng ===
-VCD info: dumpfile tb_cactus.vcd opened for output.
-Time 100 ns | === START ===
-            ████                        
-            ████                        
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-  ████    ████████      ██              
-  ████    ████████      ██              
-████████  ████████    ██████            
-████████  ████████    ██████            
-████████  ████████    ██████            
-████████  ████████    ██████            
-████████  ████████    ██████            
-████████  ████████    ██████            
-██████████████████    ██████            
-██████████████████    ██████            
-██████████████████    ██████            
-██████████████████    ██████            
-  ████████████████    ██████            
-  ████████████████    ██████            
-    ██████████████    ██████            
-    ██████████████    ██████            
-          ██████████████████            
-          ██████████████████            
-          ████████████████              
-          ████████████████              
-          ██████████████                
-          ██████████████                
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-
-Time 64060 ns | ==============================
-Time 64060 ns | === HOAN THANH TEST SPRITE ===
-Time 68860 ns | === HOAN THANH TEST CHUYEN DONG ===
-Time 77020 ns | === HOAN THANH TEST QUAY VE ===
-Time 77860 ns | === HOAN THANH TEST RESET ===
-Time 77860 ns | === HOAN THANH TEST GAMEOVER ===
-tb/tb_cactus.v:102: $finish called at 77860 (1ns)
-✅ Đã tạo Waveform (.vcd) trong thư mục sim/
-🎉 HOÀN TẤT PIPELINE!
+%Warning-PINMISSING: rtl/c_dino.v:82:17: Cell has missing pin: 'sprite'
+   82 |     dino_sprite my_dino (
+      |                 ^~~~~~~
+                     ... For warning description see https://verilator.org/warn/PINMISSING?v=5.020
+                     ... Use "/* verilator lint_off PINMISSING */" and lint_on around source to disable this message.
+%Warning-BLKSEQ: rtl/c_dino.v:68:36: Blocking assignment '=' in sequential logic process
+                                   : ... Suggest using delayed assignment '<='
+   68 |               end else frame_count = frame_count + 1;
+      |                                    ^
+%Error: Exiting due to 2 warning(s)
+🛑 Hãy đọc kỹ log cảnh báo (Error/Warning) ở trên, sửa lỗi và push lại.
