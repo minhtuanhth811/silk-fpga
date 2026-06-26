@@ -2,60 +2,199 @@
 ✅ Top Module: top_module
 ✅ Testbench: tb_cactus
 === 0/4: Đang kiểm tra lỗi cú pháp và logic (Linting) ===
-✅ Code RTL vượt qua Verilator linting.
-=== 1/4: Đang tạo Module Documentation ===
-=== 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
-=== 3/4: Đang vẽ Schematic và FSM ===
-=== 4/4: Đang mô phỏng và tạo sóng ===
-VCD info: dumpfile tb_cactus.vcd opened for output.
-Time 100 ns | === START ===
-            ████                        
-            ████                        
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-  ████    ████████      ██              
-  ████    ████████      ██              
-████████  ████████    ██████            
-████████  ████████    ██████            
-████████  ████████    ██████            
-████████  ████████    ██████            
-████████  ████████    ██████            
-████████  ████████    ██████            
-██████████████████    ██████            
-██████████████████    ██████            
-██████████████████    ██████            
-██████████████████    ██████            
-  ████████████████    ██████            
-  ████████████████    ██████            
-    ██████████████    ██████            
-    ██████████████    ██████            
-          ██████████████████            
-          ██████████████████            
-          ████████████████              
-          ████████████████              
-          ██████████████                
-          ██████████████                
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-          ████████                      
-
-Time 64060 ns | ==============================
-Time 64060 ns | === HOAN THANH TEST SPRITE ===
-Time 68860 ns | === HOAN THANH TEST CHUYEN DONG ===
-Time 77020 ns | === HOAN THANH TEST QUAY VE ===
-Time 77860 ns | === HOAN THANH TEST RESET ===
-Time 77860 ns | === HOAN THANH TEST GAMEOVER ===
-tb/tb_cactus.v:102: $finish called at 77860 (1ns)
-✅ Đã tạo Waveform (.vcd) trong thư mục sim/
-🎉 HOÀN TẤT PIPELINE!
+%Warning-SELRANGE: rtl/dino_sprite.v:43:8: Selection index out of range: 160 outside 159:0
+                                         : ... note: In instance 'top_module.dino_inst.my_dino'
+   43 |     mem[160] = 8'h01;     mem[161] = 8'h3f;     mem[162] = 8'h00;     mem[163] = 8'h00;
+      |        ^
+                   ... For warning description see https://verilator.org/warn/SELRANGE?v=5.020
+                   ... Use "/* verilator lint_off SELRANGE */" and lint_on around source to disable this message.
+%Warning-SELRANGE: rtl/dino_sprite.v:43:30: Selection index out of range: 161 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   43 |     mem[160] = 8'h01;     mem[161] = 8'h3f;     mem[162] = 8'h00;     mem[163] = 8'h00;
+      |                              ^
+%Warning-SELRANGE: rtl/dino_sprite.v:43:52: Selection index out of range: 162 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   43 |     mem[160] = 8'h01;     mem[161] = 8'h3f;     mem[162] = 8'h00;     mem[163] = 8'h00;
+      |                                                    ^
+%Warning-SELRANGE: rtl/dino_sprite.v:43:74: Selection index out of range: 163 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   43 |     mem[160] = 8'h01;     mem[161] = 8'h3f;     mem[162] = 8'h00;     mem[163] = 8'h00;
+      |                                                                          ^
+%Warning-SELRANGE: rtl/dino_sprite.v:44:8: Selection index out of range: 164 outside 159:0
+                                         : ... note: In instance 'top_module.dino_inst.my_dino'
+   44 |     mem[164] = 8'h81;     mem[165] = 8'hff;     mem[166] = 8'h00;     mem[167] = 8'h00;
+      |        ^
+%Warning-SELRANGE: rtl/dino_sprite.v:44:30: Selection index out of range: 165 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   44 |     mem[164] = 8'h81;     mem[165] = 8'hff;     mem[166] = 8'h00;     mem[167] = 8'h00;
+      |                              ^
+%Warning-SELRANGE: rtl/dino_sprite.v:44:52: Selection index out of range: 166 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   44 |     mem[164] = 8'h81;     mem[165] = 8'hff;     mem[166] = 8'h00;     mem[167] = 8'h00;
+      |                                                    ^
+%Warning-SELRANGE: rtl/dino_sprite.v:44:74: Selection index out of range: 167 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   44 |     mem[164] = 8'h81;     mem[165] = 8'hff;     mem[166] = 8'h00;     mem[167] = 8'h00;
+      |                                                                          ^
+%Warning-SELRANGE: rtl/dino_sprite.v:45:8: Selection index out of range: 168 outside 159:0
+                                         : ... note: In instance 'top_module.dino_inst.my_dino'
+   45 |     mem[168] = 8'hc3;     mem[169] = 8'hbf;     mem[170] = 8'h00;     mem[171] = 8'h00;
+      |        ^
+%Warning-SELRANGE: rtl/dino_sprite.v:45:30: Selection index out of range: 169 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   45 |     mem[168] = 8'hc3;     mem[169] = 8'hbf;     mem[170] = 8'h00;     mem[171] = 8'h00;
+      |                              ^
+%Warning-SELRANGE: rtl/dino_sprite.v:45:52: Selection index out of range: 170 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   45 |     mem[168] = 8'hc3;     mem[169] = 8'hbf;     mem[170] = 8'h00;     mem[171] = 8'h00;
+      |                                                    ^
+%Warning-SELRANGE: rtl/dino_sprite.v:45:74: Selection index out of range: 171 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   45 |     mem[168] = 8'hc3;     mem[169] = 8'hbf;     mem[170] = 8'h00;     mem[171] = 8'h00;
+      |                                                                          ^
+%Warning-SELRANGE: rtl/dino_sprite.v:46:8: Selection index out of range: 172 outside 159:0
+                                         : ... note: In instance 'top_module.dino_inst.my_dino'
+   46 |     mem[172] = 8'he7;     mem[173] = 8'h3f;     mem[174] = 8'h00;     mem[175] = 8'h00;
+      |        ^
+%Warning-SELRANGE: rtl/dino_sprite.v:46:30: Selection index out of range: 173 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   46 |     mem[172] = 8'he7;     mem[173] = 8'h3f;     mem[174] = 8'h00;     mem[175] = 8'h00;
+      |                              ^
+%Warning-SELRANGE: rtl/dino_sprite.v:46:52: Selection index out of range: 174 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   46 |     mem[172] = 8'he7;     mem[173] = 8'h3f;     mem[174] = 8'h00;     mem[175] = 8'h00;
+      |                                                    ^
+%Warning-SELRANGE: rtl/dino_sprite.v:46:74: Selection index out of range: 175 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   46 |     mem[172] = 8'he7;     mem[173] = 8'h3f;     mem[174] = 8'h00;     mem[175] = 8'h00;
+      |                                                                          ^
+%Warning-SELRANGE: rtl/dino_sprite.v:47:8: Selection index out of range: 176 outside 159:0
+                                         : ... note: In instance 'top_module.dino_inst.my_dino'
+   47 |     mem[176] = 8'hff;     mem[177] = 8'h3f;     mem[178] = 8'h00;     mem[179] = 8'h00;
+      |        ^
+%Warning-SELRANGE: rtl/dino_sprite.v:47:30: Selection index out of range: 177 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   47 |     mem[176] = 8'hff;     mem[177] = 8'h3f;     mem[178] = 8'h00;     mem[179] = 8'h00;
+      |                              ^
+%Warning-SELRANGE: rtl/dino_sprite.v:47:52: Selection index out of range: 178 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   47 |     mem[176] = 8'hff;     mem[177] = 8'h3f;     mem[178] = 8'h00;     mem[179] = 8'h00;
+      |                                                    ^
+%Warning-SELRANGE: rtl/dino_sprite.v:47:74: Selection index out of range: 179 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   47 |     mem[176] = 8'hff;     mem[177] = 8'h3f;     mem[178] = 8'h00;     mem[179] = 8'h00;
+      |                                                                          ^
+%Warning-SELRANGE: rtl/dino_sprite.v:48:8: Selection index out of range: 180 outside 159:0
+                                         : ... note: In instance 'top_module.dino_inst.my_dino'
+   48 |     mem[180] = 8'hfe;     mem[181] = 8'h1f;     mem[182] = 8'h00;     mem[183] = 8'h00;
+      |        ^
+%Warning-SELRANGE: rtl/dino_sprite.v:48:30: Selection index out of range: 181 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   48 |     mem[180] = 8'hfe;     mem[181] = 8'h1f;     mem[182] = 8'h00;     mem[183] = 8'h00;
+      |                              ^
+%Warning-SELRANGE: rtl/dino_sprite.v:48:52: Selection index out of range: 182 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   48 |     mem[180] = 8'hfe;     mem[181] = 8'h1f;     mem[182] = 8'h00;     mem[183] = 8'h00;
+      |                                                    ^
+%Warning-SELRANGE: rtl/dino_sprite.v:48:74: Selection index out of range: 183 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   48 |     mem[180] = 8'hfe;     mem[181] = 8'h1f;     mem[182] = 8'h00;     mem[183] = 8'h00;
+      |                                                                          ^
+%Warning-SELRANGE: rtl/dino_sprite.v:49:8: Selection index out of range: 184 outside 159:0
+                                         : ... note: In instance 'top_module.dino_inst.my_dino'
+   49 |     mem[184] = 8'hfc;     mem[185] = 8'h0f;     mem[186] = 8'h00;     mem[187] = 8'h00;
+      |        ^
+%Warning-SELRANGE: rtl/dino_sprite.v:49:30: Selection index out of range: 185 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   49 |     mem[184] = 8'hfc;     mem[185] = 8'h0f;     mem[186] = 8'h00;     mem[187] = 8'h00;
+      |                              ^
+%Warning-SELRANGE: rtl/dino_sprite.v:49:52: Selection index out of range: 186 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   49 |     mem[184] = 8'hfc;     mem[185] = 8'h0f;     mem[186] = 8'h00;     mem[187] = 8'h00;
+      |                                                    ^
+%Warning-SELRANGE: rtl/dino_sprite.v:49:74: Selection index out of range: 187 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   49 |     mem[184] = 8'hfc;     mem[185] = 8'h0f;     mem[186] = 8'h00;     mem[187] = 8'h00;
+      |                                                                          ^
+%Warning-SELRANGE: rtl/dino_sprite.v:50:8: Selection index out of range: 188 outside 159:0
+                                         : ... note: In instance 'top_module.dino_inst.my_dino'
+   50 |     mem[188] = 8'hf8;     mem[189] = 8'h07;     mem[190] = 8'h00;     mem[191] = 8'h00;
+      |        ^
+%Warning-SELRANGE: rtl/dino_sprite.v:50:30: Selection index out of range: 189 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   50 |     mem[188] = 8'hf8;     mem[189] = 8'h07;     mem[190] = 8'h00;     mem[191] = 8'h00;
+      |                              ^
+%Warning-SELRANGE: rtl/dino_sprite.v:50:52: Selection index out of range: 190 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   50 |     mem[188] = 8'hf8;     mem[189] = 8'h07;     mem[190] = 8'h00;     mem[191] = 8'h00;
+      |                                                    ^
+%Warning-SELRANGE: rtl/dino_sprite.v:50:74: Selection index out of range: 191 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   50 |     mem[188] = 8'hf8;     mem[189] = 8'h07;     mem[190] = 8'h00;     mem[191] = 8'h00;
+      |                                                                          ^
+%Warning-SELRANGE: rtl/dino_sprite.v:51:8: Selection index out of range: 192 outside 159:0
+                                         : ... note: In instance 'top_module.dino_inst.my_dino'
+   51 |     mem[192] = 8'h20;     mem[193] = 8'h06;     mem[194] = 8'h00;     mem[195] = 8'h00;
+      |        ^
+%Warning-SELRANGE: rtl/dino_sprite.v:51:30: Selection index out of range: 193 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   51 |     mem[192] = 8'h20;     mem[193] = 8'h06;     mem[194] = 8'h00;     mem[195] = 8'h00;
+      |                              ^
+%Warning-SELRANGE: rtl/dino_sprite.v:51:52: Selection index out of range: 194 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   51 |     mem[192] = 8'h20;     mem[193] = 8'h06;     mem[194] = 8'h00;     mem[195] = 8'h00;
+      |                                                    ^
+%Warning-SELRANGE: rtl/dino_sprite.v:51:74: Selection index out of range: 195 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   51 |     mem[192] = 8'h20;     mem[193] = 8'h06;     mem[194] = 8'h00;     mem[195] = 8'h00;
+      |                                                                          ^
+%Warning-SELRANGE: rtl/dino_sprite.v:52:8: Selection index out of range: 196 outside 159:0
+                                         : ... note: In instance 'top_module.dino_inst.my_dino'
+   52 |     mem[196] = 8'h60;     mem[197] = 8'h04;     mem[198] = 8'h00;     mem[199] = 8'h00;
+      |        ^
+%Warning-SELRANGE: rtl/dino_sprite.v:52:30: Selection index out of range: 197 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   52 |     mem[196] = 8'h60;     mem[197] = 8'h04;     mem[198] = 8'h00;     mem[199] = 8'h00;
+      |                              ^
+%Warning-SELRANGE: rtl/dino_sprite.v:52:52: Selection index out of range: 198 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   52 |     mem[196] = 8'h60;     mem[197] = 8'h04;     mem[198] = 8'h00;     mem[199] = 8'h00;
+      |                                                    ^
+%Warning-SELRANGE: rtl/dino_sprite.v:52:74: Selection index out of range: 199 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   52 |     mem[196] = 8'h60;     mem[197] = 8'h04;     mem[198] = 8'h00;     mem[199] = 8'h00;
+      |                                                                          ^
+%Warning-SELRANGE: rtl/dino_sprite.v:53:8: Selection index out of range: 200 outside 159:0
+                                         : ... note: In instance 'top_module.dino_inst.my_dino'
+   53 |     mem[200] = 8'h00;     mem[201] = 8'h04;     mem[202] = 8'h00;     mem[203] = 8'h00;
+      |        ^
+%Warning-SELRANGE: rtl/dino_sprite.v:53:30: Selection index out of range: 201 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   53 |     mem[200] = 8'h00;     mem[201] = 8'h04;     mem[202] = 8'h00;     mem[203] = 8'h00;
+      |                              ^
+%Warning-SELRANGE: rtl/dino_sprite.v:53:52: Selection index out of range: 202 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   53 |     mem[200] = 8'h00;     mem[201] = 8'h04;     mem[202] = 8'h00;     mem[203] = 8'h00;
+      |                                                    ^
+%Warning-SELRANGE: rtl/dino_sprite.v:53:74: Selection index out of range: 203 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   53 |     mem[200] = 8'h00;     mem[201] = 8'h04;     mem[202] = 8'h00;     mem[203] = 8'h00;
+      |                                                                          ^
+%Warning-SELRANGE: rtl/dino_sprite.v:54:8: Selection index out of range: 204 outside 159:0
+                                         : ... note: In instance 'top_module.dino_inst.my_dino'
+   54 |     mem[204] = 8'h00;     mem[205] = 8'h0c;     mem[206] = 8'h00;     mem[207] = 8'h00;
+      |        ^
+%Warning-SELRANGE: rtl/dino_sprite.v:54:30: Selection index out of range: 205 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   54 |     mem[204] = 8'h00;     mem[205] = 8'h0c;     mem[206] = 8'h00;     mem[207] = 8'h00;
+      |                              ^
+%Warning-SELRANGE: rtl/dino_sprite.v:54:52: Selection index out of range: 206 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   54 |     mem[204] = 8'h00;     mem[205] = 8'h0c;     mem[206] = 8'h00;     mem[207] = 8'h00;
+      |                                                    ^
+%Warning-SELRANGE: rtl/dino_sprite.v:54:74: Selection index out of range: 207 outside 159:0
+                                          : ... note: In instance 'top_module.dino_inst.my_dino'
+   54 |     mem[204] = 8'h00;     mem[205] = 8'h0c;     mem[206] = 8'h00;     mem[207] = 8'h00;
+      |                                                                          ^
+%Error: Exiting due to 48 warning(s)
+🛑 Hãy đọc kỹ log cảnh báo (Error/Warning) ở trên, sửa lỗi và push lại.
