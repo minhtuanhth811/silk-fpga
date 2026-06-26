@@ -1,9 +1,15 @@
 `default_nettype none
 `define COLOR_CYAN  3'd5
 
-module c_dino
-  (
+module c_dino #(
+    parameter GROUND_Y = 420,
+    parameter DINO_SIZE = 20,
+    parameter ZOOM = 2,
+    parameter DINO_X = 60
+)
+(
     input wire clk,
+    input wire frame_tick,
     input wire [9:0] abs_x,
     input wire [9:0] abs_y,
     input wire       rst_n,
@@ -11,16 +17,14 @@ module c_dino
     output wire      draw_dino,
     output reg       state,
     input wire       command
-  );
+);
 
-    parameter GROUND_Y = 420; 
+    
 
     // Cài đặt Khủng long (Dino)
-    parameter DINO_SIZE = 20; 
-    parameter ZOOM = 2;       // Phóng to 4x
+
     parameter DINO_W = DINO_SIZE * ZOOM; // 80 pixel
     parameter DINO_H = DINO_SIZE * ZOOM; // 80 pixel
-    parameter DINO_X = 60;      
     localparam DINO_START_Y = GROUND_Y - DINO_H; // 320 - 80 = 240
 
 
@@ -33,7 +37,6 @@ module c_dino
     // ==========================================
     // 3. GAME ENGINE CHÍNH (VẬT LÝ & DI CHUYỂN)
     // ==========================================
-    wire frame_tick = (abs_x == 0) & (abs_y == 0);
     always @(posedge clk) begin
         if (~rst_n) begin
             dino_y_reg <= DINO_START_Y;

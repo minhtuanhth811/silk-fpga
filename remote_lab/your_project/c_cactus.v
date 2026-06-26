@@ -1,27 +1,25 @@
 `default_nettype none
 
 module c_cactus #(
-  parameter GROUND_Y = 420; 
-  parameter ZOOM = 2;
-  parameter CAC_SIZE = 20;
-  parameter CAC_START_X = 640; // Xuất phát từ mép phải màn hình
-  parameter CAC_SPEED = 6;     // Tốc độ chạy của xương rồng
+    parameter GROUND_Y = 420,
+    parameter CACTUS_SIZE = 20,
+    parameter ZOOM = 2,
+    parameter CAC_START_X = 640, // Xuất phát từ mép phải màn hình
+    parameter CAC_SPEED = 6    // Tốc độ chạy của xương rồng
 )(
-  input wire clk,
-  input wire [9:0] abs_x,
-  input wire [9:0] abs_y,
-  output wire draw_cactus,
-  input wire game_over,
-  input wire rst_n
+    input wire clk,
+    input wire frame_tick,
+    input wire [9:0] abs_x,
+    input wire [9:0] abs_y,
+    output wire draw_cactus,
+    input wire game_over,
+    input wire rst_n
 );
-
-    
   // --- Cài đặt Kích thước và Tọa độ ---
-  
   // Cài đặt Xương rồng (Cactus)
-  parameter CAC_W = CAC_SIZE * ZOOM;
-  parameter CAC_H = CAC_SIZE * ZOOM;
-  
+  parameter CAC_W = CACTUS_SIZE * ZOOM;
+  parameter CAC_H = CACTUS_SIZE * ZOOM;
+ 
   wire [9:0] cac_y = GROUND_Y - CAC_H;
   // ==========================================
   // 1. THANH GHI TRẠNG THÁI (STATE REGISTERS)
@@ -31,7 +29,6 @@ module c_cactus #(
   // ==========================================
   // 4. GAME ENGINE CHÍNH (VẬT LÝ & DI CHUYỂN)
   // ==========================================
-  wire frame_tick = (abs_x == 0) & (abs_y == 0);
   always @(posedge clk) begin
       if (~rst_n) begin
           cac_x      <= CAC_START_X;

@@ -1,7 +1,7 @@
 module cactus_sprite(
   input wire [4:0] x, 
   input wire [4:0] y,
-  output reg pixel
+  output wire pixel
 );
   reg [7:0] mem[79:0];
 initial begin
