@@ -1,2 +1,2 @@
 TOP_MODULE = top_module
-TB_NAME = tb_dino
+TB_NAME = tb_cactus
