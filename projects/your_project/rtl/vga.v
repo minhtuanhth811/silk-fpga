@@ -103,22 +103,6 @@ module top_module(
     end
   end
       
-    // ==========================================
-    // 4. GAME ENGINE CHÍNH (VẬT LÝ & DI CHUYỂN)
-    // ==========================================
-    wire frame_tick = (pix_x == 0) & (pix_y == 0);
-    always @(posedge clk) begin
-        if (~rst_n) begin
-            game_over  <= 0;
-        end else if (frame_tick) begin
-            if (game_over) begin
-                // TRẠNG THÁI GAME OVER: Đứng im. Chờ bấm nhảy để Reset
-                if (edge_detector) begin
-                    game_over  <= 0;
-                end
-            end 
-        end
-    end
 
   
     // ==========================================
