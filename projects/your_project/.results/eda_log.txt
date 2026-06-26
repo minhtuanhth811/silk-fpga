@@ -2,74 +2,8 @@
 ✅ Top Module: top_module
 ✅ Testbench: tb_dino
 === 0/4: Đang kiểm tra lỗi cú pháp và logic (Linting) ===
-%Error: rtl/c_cactus.v:4:29: syntax error, unexpected ';'
-    4 |     parameter GROUND_Y = 420; 
-      |                             ^
-%Error: rtl/c_cactus.v:9:1: syntax error, unexpected ')'
-    9 | )(
-      | ^
-%Error: rtl/c_cactus.v:11:5: syntax error, unexpected input, expecting IDENTIFIER or do or final or randomize
-   11 |     input wire frame_tick,
-      |     ^~~~~
-%Error: rtl/c_cactus.v:12:5: syntax error, unexpected input, expecting IDENTIFIER or do or final or randomize
-   12 |     input wire [9:0] abs_x,
-      |     ^~~~~
-%Error: rtl/c_cactus.v:13:5: syntax error, unexpected input, expecting IDENTIFIER or do or final or randomize
-   13 |     input wire [9:0] abs_y,
-      |     ^~~~~
-%Error: rtl/c_cactus.v:14:5: syntax error, unexpected output, expecting IDENTIFIER or do or final or randomize
-   14 |     output wire draw_cactus,
-      |     ^~~~~~
-%Error: rtl/c_cactus.v:15:5: syntax error, unexpected input, expecting IDENTIFIER or do or final or randomize
-   15 |     input wire game_over,
-      |     ^~~~~
-%Error: rtl/c_cactus.v:16:5: syntax error, unexpected input, expecting IDENTIFIER or do or final or randomize
-   16 |     input wire rst_n
-      |     ^~~~~
-%Error: rtl/c_cactus.v:32:3: syntax error, unexpected always
-   32 |   always @(posedge clk) begin
-      |   ^~~~~~
-%Error: rtl/c_cactus.v:54:3: syntax error, unexpected IDENTIFIER
-   54 |   cactus_sprite my_cactus(
-      |   ^~~~~~~~~~~~~
 %Error: rtl/vga.v:87:7: syntax error, unexpected end
    87 |       end
       |       ^~~
-%Error: rtl/c_dino.v:6:29: syntax error, unexpected ';'
-    6 |     parameter GROUND_Y = 420; 
-      |                             ^
-%Error: rtl/c_dino.v:10:1: syntax error, unexpected ')'
-   10 | )
-      | ^
-%Error: rtl/c_dino.v:13:5: syntax error, unexpected input, expecting IDENTIFIER or do or final or randomize
-   13 |     input wire frame_tick,
-      |     ^~~~~
-%Error: rtl/c_dino.v:14:5: syntax error, unexpected input, expecting IDENTIFIER or do or final or randomize
-   14 |     input wire [9:0] abs_x,
-      |     ^~~~~
-%Error: rtl/c_dino.v:15:5: syntax error, unexpected input, expecting IDENTIFIER or do or final or randomize
-   15 |     input wire [9:0] abs_y,
-      |     ^~~~~
-%Error: rtl/c_dino.v:16:5: syntax error, unexpected input, expecting IDENTIFIER or do or final or randomize
-   16 |     input wire       rst_n,
-      |     ^~~~~
-%Error: rtl/c_dino.v:17:5: syntax error, unexpected input, expecting IDENTIFIER or do or final or randomize
-   17 |     input wire       game_over,
-      |     ^~~~~
-%Error: rtl/c_dino.v:18:5: syntax error, unexpected output, expecting IDENTIFIER or do or final or randomize
-   18 |     output wire      draw_dino,
-      |     ^~~~~~
-%Error: rtl/c_dino.v:19:5: syntax error, unexpected output, expecting IDENTIFIER or do or final or randomize
-   19 |     output reg       state,
-      |     ^~~~~~
-%Error: rtl/c_dino.v:20:5: syntax error, unexpected input
-   20 |     input wire       command
-      |     ^~~~~
-%Error: rtl/c_dino.v:41:5: syntax error, unexpected always
-   41 |     always @(posedge clk) begin
-      |     ^~~~~~
-%Error: rtl/c_dino.v:77:5: syntax error, unexpected IDENTIFIER
-   77 |     dino_sprite my_dino (
-      |     ^~~~~~~~~~~
-%Error: Exiting due to 23 error(s)
+%Error: Exiting due to 1 error(s)
 🛑 Hãy đọc kỹ log cảnh báo (Error/Warning) ở trên, sửa lỗi và push lại.
