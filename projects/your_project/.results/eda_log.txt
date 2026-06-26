@@ -2,20 +2,60 @@
 ✅ Top Module: top_module
 ✅ Testbench: tb_cactus
 === 0/4: Đang kiểm tra lỗi cú pháp và logic (Linting) ===
-%Warning-BLKSEQ: rtl/c_dino.v:70:36: Blocking assignment '=' in sequential logic process
-                                   : ... Suggest using delayed assignment '<='
-   70 |               end else frame_count = frame_count + 1;
-      |                                    ^
-                 ... For warning description see https://verilator.org/warn/BLKSEQ?v=5.020
-                 ... Use "/* verilator lint_off BLKSEQ */" and lint_on around source to disable this message.
-%Error-BLKANDNBLK: rtl/c_dino.v:36:15: Unsupported: Blocked and non-blocking assignments to same variable: 'top_module.dino_inst.frame_count'
-   36 |     reg [2:0] frame_count = 0;
-      |               ^~~~~~~~~~~
-                   rtl/c_dino.v:70:36: ... Location of blocking assignment
-   70 |               end else frame_count = frame_count + 1;
-      |                                    ^
-                   rtl/c_dino.v:68:17: ... Location of nonblocking assignment
-   68 |                 frame_count <= 0;
-      |                 ^~~~~~~~~~~
-%Error: Exiting due to 1 error(s), 1 warning(s)
-🛑 Hãy đọc kỹ log cảnh báo (Error/Warning) ở trên, sửa lỗi và push lại.
+✅ Code RTL vượt qua Verilator linting.
+=== 1/4: Đang tạo Module Documentation ===
+=== 2/4: Đang tổng hợp Netlist và trích xuất FSM ===
+=== 3/4: Đang vẽ Schematic và FSM ===
+=== 4/4: Đang mô phỏng và tạo sóng ===
+VCD info: dumpfile tb_cactus.vcd opened for output.
+Time 100 ns | === START ===
+            ████                        
+            ████                        
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+  ████    ████████      ██              
+  ████    ████████      ██              
+████████  ████████    ██████            
+████████  ████████    ██████            
+████████  ████████    ██████            
+████████  ████████    ██████            
+████████  ████████    ██████            
+████████  ████████    ██████            
+██████████████████    ██████            
+██████████████████    ██████            
+██████████████████    ██████            
+██████████████████    ██████            
+  ████████████████    ██████            
+  ████████████████    ██████            
+    ██████████████    ██████            
+    ██████████████    ██████            
+          ██████████████████            
+          ██████████████████            
+          ████████████████              
+          ████████████████              
+          ██████████████                
+          ██████████████                
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+          ████████                      
+
+Time 64060 ns | ==============================
+Time 64060 ns | === HOAN THANH TEST SPRITE ===
+Time 68860 ns | === HOAN THANH TEST CHUYEN DONG ===
+Time 77020 ns | === HOAN THANH TEST QUAY VE ===
+Time 77860 ns | === HOAN THANH TEST RESET ===
+Time 77860 ns | === HOAN THANH TEST GAMEOVER ===
+tb/tb_cactus.v:102: $finish called at 77860 (1ns)
+✅ Đã tạo Waveform (.vcd) trong thư mục sim/
+🎉 HOÀN TẤT PIPELINE!
