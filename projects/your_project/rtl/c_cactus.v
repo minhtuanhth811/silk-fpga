@@ -1,11 +1,11 @@
 `default_nettype none
 
 module c_cactus #(
-    parameter GROUND_Y = 420; 
-    parameter CACTUS_SIZE = 20;
-    parameter ZOOM = 2;
-    parameter CAC_START_X = 640; // Xuất phát từ mép phải màn hình
-    parameter CAC_SPEED = 6;     // Tốc độ chạy của xương rồng
+    parameter GROUND_Y = 420,
+    parameter CACTUS_SIZE = 20,
+    parameter ZOOM = 2,
+    parameter CAC_START_X = 640, // Xuất phát từ mép phải màn hình
+    parameter CAC_SPEED = 6    // Tốc độ chạy của xương rồng
 )(
     input wire clk,
     input wire frame_tick,

@@ -2,11 +2,10 @@
 `define COLOR_CYAN  3'd5
 
 module c_dino #(
-
-    parameter GROUND_Y = 420; 
-    parameter DINO_SIZE = 20; 
-    parameter ZOOM = 2;
-    parameter DINO_X = 60;  
+    parameter GROUND_Y = 420,
+    parameter DINO_SIZE = 20,
+    parameter ZOOM = 2,
+    parameter DINO_X = 60
 )
 (
     input wire clk,
