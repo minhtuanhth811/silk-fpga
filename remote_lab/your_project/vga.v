@@ -18,6 +18,7 @@ module top_module(
   wire draw_cactus;
   reg [5:0] frame_count = 0;
   wire frame_tick;
+  wire draw_game_over;
   
   scanner scanner_inst(
     .clk(clk),
