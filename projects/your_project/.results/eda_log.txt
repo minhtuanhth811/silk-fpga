@@ -2,8 +2,11 @@
 ✅ Top Module: top_module
 ✅ Testbench: tb_dino
 === 0/4: Đang kiểm tra lỗi cú pháp và logic (Linting) ===
-%Error: rtl/vga.v:87:7: syntax error, unexpected end
-   87 |       end
-      |       ^~~
+%Error: rtl/vga.v:109:10: Duplicate declaration of signal: 'frame_tick'
+  109 |     wire frame_tick = (pix_x == 0) & (pix_y == 0);
+      |          ^~~~~~~~~~
+        rtl/vga.v:20:8: ... Location of original declaration
+   20 |   wire frame_tick;
+      |        ^~~~~~~~~~
 %Error: Exiting due to 1 error(s)
 🛑 Hãy đọc kỹ log cảnh báo (Error/Warning) ở trên, sửa lỗi và push lại.
