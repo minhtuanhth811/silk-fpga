@@ -2,14 +2,20 @@
 ✅ Top Module: top_module
 ✅ Testbench: tb_cactus
 === 0/4: Đang kiểm tra lỗi cú pháp và logic (Linting) ===
-%Warning-PINMISSING: rtl/c_dino.v:82:17: Cell has missing pin: 'sprite'
-   82 |     dino_sprite my_dino (
-      |                 ^~~~~~~
-                     ... For warning description see https://verilator.org/warn/PINMISSING?v=5.020
-                     ... Use "/* verilator lint_off PINMISSING */" and lint_on around source to disable this message.
-%Warning-BLKSEQ: rtl/c_dino.v:68:36: Blocking assignment '=' in sequential logic process
+%Warning-BLKSEQ: rtl/c_dino.v:70:36: Blocking assignment '=' in sequential logic process
                                    : ... Suggest using delayed assignment '<='
-   68 |               end else frame_count = frame_count + 1;
+   70 |               end else frame_count = frame_count + 1;
       |                                    ^
-%Error: Exiting due to 2 warning(s)
+                 ... For warning description see https://verilator.org/warn/BLKSEQ?v=5.020
+                 ... Use "/* verilator lint_off BLKSEQ */" and lint_on around source to disable this message.
+%Error-BLKANDNBLK: rtl/c_dino.v:36:15: Unsupported: Blocked and non-blocking assignments to same variable: 'top_module.dino_inst.frame_count'
+   36 |     reg [2:0] frame_count = 0;
+      |               ^~~~~~~~~~~
+                   rtl/c_dino.v:70:36: ... Location of blocking assignment
+   70 |               end else frame_count = frame_count + 1;
+      |                                    ^
+                   rtl/c_dino.v:68:17: ... Location of nonblocking assignment
+   68 |                 frame_count <= 0;
+      |                 ^~~~~~~~~~~
+%Error: Exiting due to 1 error(s), 1 warning(s)
 🛑 Hãy đọc kỹ log cảnh báo (Error/Warning) ở trên, sửa lỗi và push lại.
