@@ -2,11 +2,24 @@
 ✅ Top Module: top_module
 ✅ Testbench: tb_dino
 === 0/4: Đang kiểm tra lỗi cú pháp và logic (Linting) ===
-%Error: rtl/vga.v:109:10: Duplicate declaration of signal: 'frame_tick'
-  109 |     wire frame_tick = (pix_x == 0) & (pix_y == 0);
-      |          ^~~~~~~~~~
-        rtl/vga.v:20:8: ... Location of original declaration
-   20 |   wire frame_tick;
-      |        ^~~~~~~~~~
-%Error: Exiting due to 1 error(s)
+%Warning-BLKSEQ: rtl/vga.v:76:25: Blocking assignment '=' in sequential logic process
+                                : ... Suggest using delayed assignment '<='
+   76 |       collision_latched = 0;
+      |                         ^
+                 ... For warning description see https://verilator.org/warn/BLKSEQ?v=5.020
+                 ... Use "/* verilator lint_off BLKSEQ */" and lint_on around source to disable this message.
+%Warning-BLKSEQ: rtl/vga.v:77:24: Blocking assignment '=' in sequential logic process
+                                : ... Suggest using delayed assignment '<='
+   77 |       game_reset_n_reg = 1;
+      |                        ^
+%Error-BLKANDNBLK: rtl/vga.v:70:7: Unsupported: Blocked and non-blocking assignments to same variable: 'top_module.game_reset_n_reg'
+   70 |   reg game_reset_n_reg = 1;
+      |       ^~~~~~~~~~~~~~~~
+                   rtl/vga.v:77:24: ... Location of blocking assignment
+   77 |       game_reset_n_reg = 1;
+      |                        ^
+                   rtl/vga.v:81:9: ... Location of nonblocking assignment
+   81 |         game_reset_n_reg <= 0;
+      |         ^~~~~~~~~~~~~~~~
+%Error: Exiting due to 1 error(s), 2 warning(s)
 🛑 Hãy đọc kỹ log cảnh báo (Error/Warning) ở trên, sửa lỗi và push lại.
