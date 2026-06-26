@@ -83,7 +83,7 @@ module top_module(
         collision_latched <= 0;
       end
       else begin
-        game_reset_n_reg <= 1
+        game_reset_n_reg <= 1;
       end
       if (!game_over  && collision) begin
         game_over <= 1;
