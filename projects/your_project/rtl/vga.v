@@ -73,8 +73,8 @@ module top_module(
   always @(posedge clk) begin
     if(~rst_n) begin
       game_over <= 0;
-      collision_latched = 0;
-      game_reset_n_reg = 1;
+      collision_latched <= 0;
+      game_reset_n_reg <= 1;
     end
     else begin
       if(game_over && edge_detector) begin
