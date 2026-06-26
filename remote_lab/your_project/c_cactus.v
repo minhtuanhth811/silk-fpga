@@ -13,7 +13,8 @@ module c_cactus #(
     input wire [9:0] abs_y,
     output wire draw_cactus,
     input wire game_over,
-    input wire rst_n
+    input wire rst_n,
+    output wire cac_rst
 );
   // --- Cài đặt Kích thước và Tọa độ ---
   // Cài đặt Xương rồng (Cactus)
@@ -24,7 +25,11 @@ module c_cactus #(
   // ==========================================
   // 1. THANH GHI TRẠNG THÁI (STATE REGISTERS)
   // ==========================================
+  reg [9:0] cac_speed = CAC_SPEED;
   reg [9:0] cac_x = CAC_START_X;
+ 
+
+  assign cac_rst = (cac_x <= cac_speed);
 
   // ==========================================
   // 4. GAME ENGINE CHÍNH (VẬT LÝ & DI CHUYỂN)
@@ -36,10 +41,12 @@ module c_cactus #(
           if (game_over) begin
           end else begin
                 // ---- XỬ LÝ XƯƠNG RỒNG CHẠY ----
-                if (cac_x <= CAC_SPEED) 
+                if (cac_x <= cac_speed) 
                     cac_x <= CAC_START_X; // Cuốn chiếu vòng lại
+                    cac_speed <= cac_speed + 1;
+
                 else 
-                    cac_x <= cac_x - CAC_SPEED;
+                    cac_x <= cac_x - cac_speed;
           end
       end
   end

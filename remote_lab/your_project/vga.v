@@ -19,6 +19,8 @@ module top_module(
   reg [5:0] frame_count = 0;
   wire frame_tick;
   wire draw_game_over;
+  wire draw_score;
+  wire cac_rst;
   
   scanner scanner_inst(
     .clk(clk),
@@ -51,7 +53,8 @@ module top_module(
     .rst_n(reset_n),
     .frame_tick(frame_tick),
     .game_over(game_over),
-    .draw_cactus(draw_cactus)
+    .draw_cactus(draw_cactus),
+    .cac_rst(cac_rst)
   );
 
   c_game_over go_inst(
@@ -62,6 +65,17 @@ module top_module(
     .frame_tick(frame_tick),
     .game_over(game_over),
     .draw_game_over(draw_game_over)
+  );
+
+  c_score c_score_inst(
+    .clk(clk),
+    .rst_n(reset_n),
+    .frame_tick(frame_tick),
+    .game_over(game_over),
+    .draw_score(draw_score),
+    .abs_x(pix_x),
+    .abs_y(pix_y),
+    .count(cac_rst)
   );
   
   parameter GROUND_Y = 420; 
@@ -125,6 +139,11 @@ module top_module(
         end else begin
             if (video_active) begin
                 if (draw_game_over) begin
+                    r <= 2'b00; 
+                    g <= 2'b00; 
+                    b <= 2'b00; 
+                end else if (draw_score) begin
+                    // Nếu chết (game_over = 1), biến thành màu ĐỎ. Bình thường màu XANH LÁ.
                     r <= 2'b00; 
                     g <= 2'b00; 
                     b <= 2'b00; 
