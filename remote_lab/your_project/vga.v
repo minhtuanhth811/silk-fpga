@@ -128,8 +128,7 @@ module top_module(
                     r <= 2'b00; 
                     g <= 2'b00; 
                     b <= 2'b00; 
-                end
-                if (draw_dino) begin
+                end else if (draw_dino) begin
                     // Nếu chết (game_over = 1), biến thành màu ĐỎ. Bình thường màu XANH LÁ.
                     r <= 2'b00; 
                     g <= 2'b00; 
