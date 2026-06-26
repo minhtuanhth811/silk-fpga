@@ -37,6 +37,7 @@ module c_cactus #(
   always @(posedge clk) begin
       if (~rst_n) begin
           cac_x      <= CAC_START_X;
+          cac_speed <= CAC_SPEED;
       end else if (frame_tick) begin
           if (game_over) begin
           end else begin
