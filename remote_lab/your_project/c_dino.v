@@ -33,6 +33,8 @@ module c_dino #(
     // ==========================================
     reg signed [10:0] dino_y_reg = DINO_START_Y;
     reg signed [10:0] dino_vy = 0;
+    reg [2:0] frame_count = 0;
+    reg sprite = 0;
 
     // ==========================================
     // 3. GAME ENGINE CHÍNH (VẬT LÝ & DI CHUYỂN)
@@ -60,6 +62,10 @@ module c_dino #(
                       dino_vy    <= 0;
                   end
               end
+              if (frame_count == 5) begin
+                frame_count <= 0;
+                sprite <= sprite + 1;
+              end else frame_count = frame_count + 1;
             end
         end
     end
