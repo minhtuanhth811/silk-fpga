@@ -20,8 +20,8 @@ module c_game_over #(
   // ==========================================
   // 5. MẠCH RENDER ĐỒ HỌA
   // ==========================================
-  wire [9:0] local_go_x = abs_x - go_x;
-  wire [9:0] local_go_y = abs_y - go_y;
+  wire [9:0] local_go_x = abs_x - GO_START_X;
+  wire [9:0] local_go_y = abs_y - GO_START_Y;
   wire go_pixel_on;
 
   game_over_sprite go_inst(
