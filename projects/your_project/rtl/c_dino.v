@@ -67,7 +67,7 @@ module c_dino #(
               if (frame_count == 5) begin
                 frame_count <= 0;
                 sprite <= sprite + 1;
-              end else frame_count = frame_count + 1;
+              end else frame_count <= frame_count + 1;
             end
         end
     end
