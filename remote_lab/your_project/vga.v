@@ -52,6 +52,15 @@ module top_module(
     .game_over(game_over),
     .draw_cactus(draw_cactus)
   );
+  c_game_over go_inst(
+    .clk(clk),
+    .abs_x(pix_x),
+    .abs_y(pix_y),
+    .rst_n(reset_n),
+    .frame_tick(frame_tick),
+    .game_over(game_over),
+    .draw_game_over(draw_cactus)
+  );
   
   parameter GROUND_Y = 420; 
   wire draw_ground = (pix_y == GROUND_Y) || (pix_y == GROUND_Y + 1);
@@ -113,6 +122,11 @@ module top_module(
             r <= 2'b11; g <= 2'b11; b <= 2'b11;
         end else begin
             if (video_active) begin
+                if (draw_game_over) begin
+                    r <= 2'b00; 
+                    g <= 2'b00; 
+                    b <= 2'b00; 
+                end
                 if (draw_dino) begin
                     // Nếu chết (game_over = 1), biến thành màu ĐỎ. Bình thường màu XANH LÁ.
                     r <= 2'b00; 
