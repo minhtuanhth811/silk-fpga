@@ -27,7 +27,7 @@ module tb_dino;
     
     task pump_frametick;
         begin 
-            abs_x = 0;
+            abs_x = 0; //khong force dino_i.frame_tick vi frame_tick là wire do module c_dino sinh ra, làm vậy gây conflict
             abs_y = 0;
             @(posedge clk);
             abs_x = 1;

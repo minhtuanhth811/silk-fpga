@@ -3,8 +3,9 @@
 `define SCANNER_H
   module scanner(
     input wire       clk,
-    output reg      hsync,
-    output reg      vsync,
+    output reg       hsync,
+    output reg       vsync,
+    output wire      frame_tick,
     output wire      display_on,
     output reg [9:0] abs_x,
     output reg [9:0] abs_y,
@@ -44,5 +45,6 @@
     end
   
     assign display_on = (abs_x < H_DISPLAY) && (abs_y < V_DISPLAY);
+    assign frame_tick = (abs_x == 0) & (abs_y == 0);
   endmodule
 `endif
