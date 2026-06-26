@@ -4,9 +4,9 @@ module c_game_over #(
     parameter ZOOM = 8,
     parameter GO_START_X = 148, // Xuất phát từ mép phải màn hình
     parameter GO_START_Y = 220, // Xuất phát từ mép phải màn hìn
-    parameter GO_SPEED = 6    // Tốc độ chạy của xương rồng
-    parameter GO_W = 43 * ZOOM;
-    parameter GO_H = 5 * ZOOM;
+    parameter GO_SPEED = 6,   // Tốc độ chạy của xương rồng
+    parameter GO_W = 43 * ZOOM,
+    parameter GO_H = 5 * ZOOM
 )(
     input wire clk,
     input wire frame_tick,
