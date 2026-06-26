@@ -44,6 +44,8 @@ module c_dino #(
             dino_y_reg <= DINO_START_Y;
             dino_vy    <= 0;
             state <= 0;
+            frame_count <= 0;
+            sprite <= 0;
         end else if (frame_tick) begin
           if (game_over) begin
           end else begin
@@ -82,7 +84,8 @@ module c_dino #(
     dino_sprite my_dino (
       .x(local_dino_x[5:1]), 
       .y(local_dino_y[5:1]),
-      .pixel(dino_pixel_on)
+      .pixel(dino_pixel_on),
+      .sprite(sprite)
     );
 
     assign draw_dino  = (abs_x >= DINO_X) && (abs_x < DINO_X + DINO_W) &&
