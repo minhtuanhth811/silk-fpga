@@ -32,26 +32,26 @@ module dino_sprite (
     mem[72] = 8'h20;     mem[73] = 8'h00;     mem[74] = 8'h00;     mem[75] = 8'h00;
     mem[76] = 8'h60;     mem[77] = 8'h00;     mem[78] = 8'h00;     mem[79] = 8'h00;
     //sprite 1
-    mem[80] = 8'h00;     mem[81] = 8'hfc;     mem[82] = 8'h07;     mem[83] = 8'h00;
-    mem[84] = 8'h00;     mem[85] = 8'hf6;     mem[86] = 8'h0f;     mem[87] = 8'h00;
-    mem[88] = 8'h00;     mem[89] = 8'hfe;     mem[90] = 8'h0f;     mem[91] = 8'h00;
-    mem[92] = 8'h00;     mem[93] = 8'hfe;     mem[94] = 8'h0f;     mem[95] = 8'h00;
-    mem[96] = 8'h00;     mem[97] = 8'hfe;     mem[98] = 8'h0f;     mem[99] = 8'h00;
-    mem[100] = 8'h00;     mem[101] = 8'h7e;     mem[102] = 8'h00;     mem[103] = 8'h00;
-    mem[104] = 8'h00;     mem[105] = 8'hfe;     mem[106] = 8'h03;     mem[107] = 8'h00;
-    mem[108] = 8'h00;     mem[109] = 8'h3e;     mem[110] = 8'h00;     mem[111] = 8'h00;
-    mem[112] = 8'h01;     mem[113] = 8'h3f;     mem[114] = 8'h00;     mem[115] = 8'h00;
-    mem[116] = 8'h81;     mem[117] = 8'hff;     mem[118] = 8'h00;     mem[119] = 8'h00;
-    mem[120] = 8'hc3;     mem[121] = 8'hbf;     mem[122] = 8'h00;     mem[123] = 8'h00;
-    mem[124] = 8'he7;     mem[125] = 8'h3f;     mem[126] = 8'h00;     mem[127] = 8'h00;
-    mem[128] = 8'hff;     mem[129] = 8'h3f;     mem[130] = 8'h00;     mem[131] = 8'h00;
-    mem[132] = 8'hfe;     mem[133] = 8'h1f;     mem[134] = 8'h00;     mem[135] = 8'h00;
-    mem[136] = 8'hfc;     mem[137] = 8'h0f;     mem[138] = 8'h00;     mem[139] = 8'h00;
-    mem[140] = 8'hf8;     mem[141] = 8'h07;     mem[142] = 8'h00;     mem[143] = 8'h00;
-    mem[144] = 8'h20;     mem[145] = 8'h06;     mem[146] = 8'h00;     mem[147] = 8'h00;
-    mem[148] = 8'h60;     mem[149] = 8'h04;     mem[150] = 8'h00;     mem[151] = 8'h00;
-    mem[152] = 8'h00;     mem[153] = 8'h04;     mem[154] = 8'h00;     mem[155] = 8'h00;
-    mem[156] = 8'h00;     mem[157] = 8'h0c;     mem[158] = 8'h00;     mem[159] = 8'h00;
+    mem[128] = 8'h00;     mem[129] = 8'hfc;     mem[130] = 8'h07;     mem[131] = 8'h00;
+    mem[132] = 8'h00;     mem[133] = 8'hf6;     mem[134] = 8'h0f;     mem[135] = 8'h00;
+    mem[136] = 8'h00;     mem[137] = 8'hfe;     mem[138] = 8'h0f;     mem[139] = 8'h00;
+    mem[140] = 8'h00;     mem[141] = 8'hfe;     mem[142] = 8'h0f;     mem[143] = 8'h00;
+    mem[144] = 8'h00;     mem[145] = 8'hfe;     mem[146] = 8'h0f;     mem[147] = 8'h00;
+    mem[148] = 8'h00;     mem[149] = 8'h7e;     mem[150] = 8'h00;     mem[151] = 8'h00;
+    mem[152] = 8'h00;     mem[153] = 8'hfe;     mem[154] = 8'h03;     mem[155] = 8'h00;
+    mem[156] = 8'h00;     mem[157] = 8'h3e;     mem[158] = 8'h00;     mem[159] = 8'h00;
+    mem[160] = 8'h01;     mem[161] = 8'h3f;     mem[162] = 8'h00;     mem[163] = 8'h00;
+    mem[164] = 8'h81;     mem[165] = 8'hff;     mem[166] = 8'h00;     mem[167] = 8'h00;
+    mem[168] = 8'hc3;     mem[169] = 8'hbf;     mem[170] = 8'h00;     mem[171] = 8'h00;
+    mem[172] = 8'he7;     mem[173] = 8'h3f;     mem[174] = 8'h00;     mem[175] = 8'h00;
+    mem[176] = 8'hff;     mem[177] = 8'h3f;     mem[178] = 8'h00;     mem[179] = 8'h00;
+    mem[180] = 8'hfe;     mem[181] = 8'h1f;     mem[182] = 8'h00;     mem[183] = 8'h00;
+    mem[184] = 8'hfc;     mem[185] = 8'h0f;     mem[186] = 8'h00;     mem[187] = 8'h00;
+    mem[188] = 8'hf8;     mem[189] = 8'h07;     mem[190] = 8'h00;     mem[191] = 8'h00;
+    mem[192] = 8'h20;     mem[193] = 8'h06;     mem[194] = 8'h00;     mem[195] = 8'h00;
+    mem[196] = 8'h60;     mem[197] = 8'h04;     mem[198] = 8'h00;     mem[199] = 8'h00;
+    mem[200] = 8'h00;     mem[201] = 8'h04;     mem[202] = 8'h00;     mem[203] = 8'h00;
+    mem[204] = 8'h00;     mem[205] = 8'h0c;     mem[206] = 8'h00;     mem[207] = 8'h00;
   end
 
   // Dùng lại tuyệt chiêu toán học: Địa chỉ = y * 4 + x / 8
