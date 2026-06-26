@@ -30,8 +30,8 @@ module c_game_over #(
     .pixel(go_pixel_on)
   );
                      
-  assign draw_game_over = (abs_x >= go_x) && (abs_x < go_x + GO_W) &&
-                          (abs_y >= go_y) && (abs_y < go_y + GO_H) &&
+  assign draw_game_over = (abs_x >= GO_START_X) && (abs_x < GO_START_X + GO_W) &&
+                          (abs_y >= GO_START_Y) && (abs_y < GO_START_Y + GO_H) &&
                           go_pixel_on && game_over;
                      
 
