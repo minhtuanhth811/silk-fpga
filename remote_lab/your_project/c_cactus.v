@@ -41,10 +41,10 @@ module c_cactus #(
           if (game_over) begin
           end else begin
                 // ---- XỬ LÝ XƯƠNG RỒNG CHẠY ----
-                if (cac_x <= cac_speed) 
+                if (cac_x <= cac_speed) begin
                     cac_x <= CAC_START_X; // Cuốn chiếu vòng lại
                     cac_speed <= cac_speed + 1;
-
+                end
                 else 
                     cac_x <= cac_x - cac_speed;
           end
