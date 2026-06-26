@@ -53,6 +53,7 @@ module top_module(
     .game_over(game_over),
     .draw_cactus(draw_cactus)
   );
+
   c_game_over go_inst(
     .clk(clk),
     .abs_x(pix_x),
@@ -60,7 +61,7 @@ module top_module(
     .rst_n(reset_n),
     .frame_tick(frame_tick),
     .game_over(game_over),
-    .draw_game_over(draw_cactus)
+    .draw_game_over(draw_game_over)
   );
   
   parameter GROUND_Y = 420; 
