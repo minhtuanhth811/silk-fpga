@@ -49,8 +49,8 @@ module c_score #(
     wire [9:0] ly = abs_y - base_y;
 
     // Kiểm tra tia quét có đang nằm trong "khu đất" của bảng điểm không (rộng 64, cao 20)
-    wire in_box = (pix_x >= base_x) && (pix_x < base_x + 64) &&
-                  (pix_y >= base_y) && (pix_y < base_y + 20);
+    wire in_box = (abs_x >= base_x) && (abs_x < base_x + 64) &&
+                  (abs_y >= base_y) && (abs_y < base_y + 20);
 
     // 2. BỘ DỒN KÊNH CHỌN SỐ (Nhờ lũy thừa 2, lx[5:4] tự động tách lô)
     reg [3:0] curr_dig;
