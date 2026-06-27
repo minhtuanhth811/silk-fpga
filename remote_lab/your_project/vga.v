@@ -274,7 +274,7 @@ module game_ctrl (
         end
         S_RUN: begin
           if (hit) begin
-            state <= S_RUN; 
+            state <= S_GAME_OVER; 
           end else begin
             score <= score + 16'd1;
             if (score[7:0] == 8'hFF && speed < 4'd8)
