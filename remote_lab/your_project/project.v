@@ -34,6 +34,7 @@ module project (
         .clk(clk),
         .rst_n(rst_n),
         .SW(ui_in),            // control switch
+        .KEY(uio_in[1:0]),
         .hsync(hsync),         // vga interface
         .vsync(vsync),
         .r(r),
