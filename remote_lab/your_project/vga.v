@@ -437,8 +437,8 @@ module collision #(
   assign hit =
          (dino_right  >= obs_left)   &&
          (dino_left   <= obs_right)  &&
-         (dino_bottom <= obs_top)    && //??
-         (dino_top    >= obs_bottom);
+         (dino_bottom >= obs_top)    && //??
+         (dino_top    <= obs_bottom);
 endmodule
 
 
